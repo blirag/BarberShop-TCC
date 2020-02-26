@@ -23,3 +23,6 @@ section form button {width: 250px; height: 50px; border-radius: 20px; color: #ff
 section form hr {border: solid 1px #000; width: 250px ;margin-left: 130px}
 section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
 section form button:hover {opacity: 0.9;}
+section form h5 {font-size: 16px; margin-top: 15px; text-align: center;}
+section form h5 a {color: #000; text-decoration: underline;}
+section form h5 a:hover {color: #797676c4}
