@@ -1,0 +1,25 @@
+* {margin: 0; padding: 0; font-size: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+nav, ul {list-style: none;}
+a {text-decoration: none; cursor: pointer}
+
+header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.4em; justify-content: space-between;}
+header a img {height: 200px; width: 750px}
+header nav ul {display: flex; margin-left: -3%;}
+header nav ul a {padding: 0 15px; color: #fff}
+header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
+header a i { margin-right: 20px; font-size: 1.2em; color: #fff}
+@media (max-width: 1000px) {
+    header {flex-direction: column;}
+    header a img {width: 700px; margin-left: 13%;}
+    header nav ul {margin-left: 0px;}
+}
+
+section {display: flex; font-size: 1.5em; margin-top: 250px; flex-direction: column; align-items: center;}
+section form {border-radius: 10px;}
+section form h1 {font-size: 2em; text-align: center; width: 500px;}
+section form input {width: 500px; height: 55px; border-radius: 5px; border: solid 1px #101010}
+section form button {width: 250px; height: 50px; border-radius: 20px; color: #fff; background-color: #000; margin: 0 120px;}
+::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
+section form hr {border: solid 1px #000; width: 250px ;margin-left: 130px}
+section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
+section form button:hover {opacity: 0.9;}

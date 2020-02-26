@@ -1,0 +1,39 @@
+* {margin: 0; padding: 0; font-size: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+nav, ul {list-style: none;}
+a {text-decoration: none; cursor: pointer}
+
+header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.4em; justify-content: space-between;}
+header a img {height: 200px; width: 750px}
+header nav ul {display: flex; margin-left: -3%;}
+header nav ul a {padding: 0 15px; color: #fff}
+header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
+header a i {margin-right: 20px; font-size: 1.2em; color: #fff}
+@media (max-width: 1000px) {
+    header {flex-direction: column;}
+    header a img {width: 700px; margin-left: 13%;}
+    header nav ul {margin-left: 0px;}
+}
+
+main {background-image: url(../img/servicosbanner.png); background-size: cover; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 200px; min-height: 80vh; color: #fff;}
+main h1 {font-size: 3em; text-transform: uppercase; margin-bottom: 5px;}
+main .btn {font-size: 16px; border-radius: 4px; background-color: #fff; color: #101010; padding: 20px 50px; text-transform: uppercase; opacity: 0.9;}
+main .btn:hover {opacity: 1;}
+@media (max-width: 700px) {
+    main h1 {font-size: 2em}
+    main .btn {font-size: 12px;}
+}
+
+.sobre-agendamento {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010;}
+.sobre-agendamento h3 {font-size: 2rem; margin-bottom: 35px; }
+.sobre-agendamento p { max-width: 800px; margin-bottom: 35px; text-align: center; font-size: 1.2em;}
+.sobre-agendamento hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+.sobre-agendamento .btn-agendar {color: #fff; background-color: #101010; padding: 20px 50px; text-transform: uppercase; border-radius: 4px; margin-bottom: 35px;}
+.sobre-agendamento .btn-agendar:hover {opacity: 0.9;}
+.sobre-agendamento .grid {width: 100%; display: flex; flex-wrap: wrap;}
+.sobre-agendamento .grid li {height: 350px; padding: 20px; border-radius: 4px; background-clip: content-box; background-size: cover; background-position: center;}
+.sobre-agendamento .grid li.small {flex-basis: 40%;}
+.sobre-agendamento .grid li.large {flex-basis: 60%;}
+@media (max-width: 700px) {
+    .sobre-agendamento .grid li.small, .sobre-agendamento .grid li.large {flex-basis: 100%;}
+
+}
