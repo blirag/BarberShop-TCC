@@ -18,7 +18,21 @@
              <a href=""><li>Sobre</li></a>
          </ul>
          </nav>
-         <a href="http://"><i class="fas fa-user"></i></a>
+
+         <button class="btn-menu">
+            <i class="fas fa-angle-down"></i> 
+        </button>
+        <section class="menu">
+            <a class="btn-close"> <i class="fa fa-times"></i></a>
+            <ul>
+                <li><a href="#"> Serviços </a></li>
+                <li><a href="#"> Agendamento </a></li>
+                <li><a href="#"> Contato </i></a></li>
+                <li><a href="#"> Sobre </a></li>
+                 <li><a href="cadastro-login/cadastro.html"> Cadastro </a></li>
+                 <li><a href="cadastro-login/login.html"> Login </a></li>
+            </ul>
+        </section>
      </header>
 
     <section>
@@ -34,4 +48,13 @@
         </form>
     </section>
 </body>
+
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>>
+      <script>
+      $(".btn-menu").click(function (){$(".menu").show()});
+      $(".btn-close").click(function(){$(".menu").hide()});
+      </script>
 </html>
