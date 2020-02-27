@@ -27,6 +27,9 @@ header a i {margin-right: 35px; font-size: 1.2em; color: #fff}
     header button i {font-size: 1.8em;}
 }
 
+
+
+/*
 main {background-image: url(../img/servicosbanner.png); background-size: cover; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 200px; min-height: 80vh; color: #fff;}
 main h1 {font-size: 3em; text-transform: uppercase; margin-bottom: 5px;}
 main .btn {font-size: 16px; border-radius: 4px; background-color: #fff; color: #101010; padding: 20px 50px; text-transform: uppercase; opacity: 0.9;}
@@ -34,11 +37,18 @@ main .btn:hover {opacity: 1;}
 @media (max-width: 700px) {
     main h1 {font-size: 2em}
     main .btn {font-size: 12px;}
-}
+}*/
 
-.sobre-agendamento {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010;}
-.sobre-agendamento h3 {font-size: 2rem; margin-bottom: 35px; }
-.sobre-agendamento p { max-width: 800px; margin-bottom: 35px; text-align: center; font-size: 1.2em;}
+main {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010; margin-top: 150px;}
+main h3 {font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;}
+main p { max-width: 800px; margin-bottom: 35px; text-align: center; font-size: 1.2em;}
+main hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+main .grid-sobrenos {width: 100%px; display: flex; flex-wrap: nowrap;}
+main .grid-sobrenos li {height: 600px; width: 400px; padding: 20px; border-radius: 4px; background-clip: content-box; background-size: cover; background-position: center;}
+
+.sobre-agendamento {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010; margin-top: -50px;}
+.sobre-agendamento h3 {font-size: 2rem; margin-bottom: 35px; text-transform: uppercase;}
+.sobre-agendamento p { max-width: 800px; margin-bottom: 20px; text-align: center; font-size: 1.2em;}
 .sobre-agendamento hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
 .sobre-agendamento .btn-agendar {color: #fff; background-color: #101010; padding: 20px 50px; text-transform: uppercase; border-radius: 4px; margin-bottom: 35px;}
 .sobre-agendamento .btn-agendar:hover {opacity: 0.9;}
