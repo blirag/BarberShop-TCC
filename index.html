@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
+    <script 
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+ 
 </head>
 <body>
     
@@ -18,8 +23,8 @@
         <ul>
             <li><a href="">Serviços</a></li>
             <li><a href="">Agendamento</a></li>
-            <li><a href="">Contato</a></li>
-            <li><a href="">Sobre</a></li>
+            <li><a href="#localizacao">Localização</a></li>
+            <li><a href="#contato">Contato</a></li>
         </ul>
         </nav>
         <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
@@ -32,8 +37,8 @@
             <ul>
                 <li><a href="#"> Serviços </a></li>
                 <li><a href="#"> Agendamento </a></li>
-                <li><a href="#"> Contato </i></a></li>
-                <li><a href="#"> Sobre </a></li>
+                <li><a href="#localizacao"> Localização </i></a></li>
+                <li><a href="#contato"> Contato </a></li>
                  <li><a href="cadastro-login/cadastro.html"> Cadastro </a></li>
                  <li><a href="cadastro-login/login.html"> Login </a></li>
             </ul>
@@ -67,14 +72,14 @@
         </ul>
     </section>
 
-    <section class="onde-estamos">
+    <section class="onde-estamos" id="localizacao">
         <h3>Onde estamos</h3>
         <p>Rua Oscar Freire, 1102, Jardim Paulista – São Paulo</p>
         <hr>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1886353058326!2d-46.67249138502226!3d-23.56166768468276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d55e6767b9%3A0x4402220e5c65404e!2sRua%20Oscar%20Freire%2C%201102%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001417-060!5e0!3m2!1spt-BR!2sbr!4v1582996270104!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </section>
 
-    <section class="contato">
+    <section class="contato" id="contato">
         <h3>Contate-nos</h3>
         <p>Em caso de dúvidas, sugestões, elogios ou reclamações entre em contato conosco por um dos meios abaixo</p>
         <hr>
@@ -86,13 +91,55 @@
         </ul>
     </section>
 
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.js"
-    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>>
-          <script>
-          $(".btn-menu").click(function (){$(".menu").show()});
-          $(".btn-close").click(function(){$(".menu").hide()});
-          </script>
+    <i class="fas fa-angle-up" id="btntop"></i>
+
+    <footer>
+        <h2 class="title">Atendimento</h2>
+        <ul class="infos">
+            <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
+            <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
+        </ul>
+
+        <h2 class="title">Contato</h2>
+        <ul class="infos">
+            <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
+            <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
+        </ul>
+
+        <p>© Barber Shop 2020 | Todos os direitos reservados</p>
+    </footer>
+
+<script>
+    // função para o menu
+    $(".btn-menu").click(function (){$(".menu").show()});
+    $(".btn-close").click(function(){$(".menu").hide()});
+
+    $('header, nav, a').click(function(e) {
+        e.preventDefault();
+        var id = $(this).attr('href'),
+            targetOffset = $(id).offset().top;
+        $('html, body').animate({
+            scrollTop: targetOffset
+        }, 500);
+    });
+
+    // função para o botão voltar ao topo
+    $(function() {
+    $('#btntop').hide()
+    $(window).scroll(function() {
+        if($(this).scrollTop() > 500){
+            $('#btntop').fadeIn()
+        }
+        else {
+            $('#btntop').fadeOut()
+        }
+        });
+        $('#btntop').click(function(){
+            $('html, body').animate({
+                scrollTop: 0
+            });
+        });
+    });
+</script>
 </body>
 </html>
