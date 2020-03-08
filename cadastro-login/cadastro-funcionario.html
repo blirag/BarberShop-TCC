@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastrologin.css">
     <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
-    <title>Cadastro - BarberShop</title>
+    <title>Cadastrar Funcionário</title>
 </head>
 <body>
     <header>
@@ -34,31 +34,28 @@
             </ul>
         </section>
      </header>
-
-    <section>
-        <form method="POST">
-            <h1>Cadastro</h1>
-            <hr><br>
-            <label for="nome">Nome</label><br>
-            <input type="text" placeholder=" Seu nome"><br><br>
-            <label for="telefone">Telefone</label><br>
-            <input type="text" placeholder=" (00) 00000-0000"><br><br>
-            <label for="email">Email</label><br>
-            <input type="email" placeholder=" seuemail@exemplo.com"><br><br>
-            <label for="senha">Senha</label><br>
-            <input type="password" placeholder=" ********"><br><br>
-            <button type="submit">Cadastrar</button>
-            <h5>Já possui uma conta? Faça o <a href="login.html">Login</a></h5>
-        </form>
-    </section>
+<section>
+     <form method="POST">
+        <h2>Cadastrar Funcionário</h2>
+        <hr style="width: 350px; margin-left: 70px"><br>
+        <label for="nome">Nome</label><br>
+        <input type="text" name="nome" placeholder=" Seu nome"><br><br>
+        <label for="datanasc">Data de Nascimento</label><br>
+        <input type="date" name="datanasc"><br><br>
+        <label for="rg">RG</label><br>
+        <input type="text" name="rg" placeholder="000.000.000-0"><br><br>
+        <label for="cpf">Cpf</label><br>
+        <input type="text" name="cpf" placeholder="000.000.000-00"><br><br>
+        <label for="telefone">Telefone</label><br>
+        <input type="text" name="telefone" placeholder=" (00) 00000-0000"><br><br>
+        <label for="email">Email</label><br>
+        <input type="email" name="email" placeholder=" seuemail@exemplo.com"><br><br>
+        <label for="senha">Senha</label><br>
+        <input type="password" name="senha" placeholder=" ********"><br><br>
+        <label for="salario">Salário</label><br>
+        <input type="text" name="salario" value="R$"><br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</section>
 </body>
-
-<script
-src="https://code.jquery.com/jquery-3.4.1.js"
-integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-crossorigin="anonymous"></script>>
-      <script>
-      $(".btn-menu").click(function (){$(".menu").show()});
-      $(".btn-close").click(function(){$(".menu").hide()});
-      </script>
 </html>

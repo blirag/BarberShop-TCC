@@ -27,13 +27,15 @@ header a i {margin-right: 35px; font-size: 1.2em; color: #fff}
     header button i {font-size: 1.8em;}
 }
 
-section {display: flex; font-size: 1.5em; margin-top: 250px; flex-direction: column; align-items: center;}
+section {display: flex; font-size: 1.5em; margin-top: 250px; flex-direction: column; align-items: center; text-transform: uppercase;}
 section form {border-radius: 10px;}
 section form h1 {font-size: 2em; text-align: center; width: 500px;}
+section form h2 {font-size: 1.5em; text-align: center; width: 500px;}
+section form label {font-size: 0.9em}
 section form input {width: 500px; height: 55px; border-radius: 5px; border: solid 1px #101010}
 section form button {width: 250px; height: 50px; border-radius: 20px; color: #fff; background-color: #000; margin: 0 120px;}
 ::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
-section form hr {border: solid 1px #000; width: 250px ;margin-left: 130px}
+section form hr {border: solid 1px #000; width: 250px; margin-left: 130px}
 section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
 section form button:hover {opacity: 0.9;}
 section form h5 {font-size: 16px; margin-top: 15px; text-align: center;}
