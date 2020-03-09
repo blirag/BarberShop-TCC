@@ -16,7 +16,7 @@ header a img {height: 200px; width: 750px}
 header nav ul {display: flex; margin-left: -10%;}
 header nav ul a {padding: 0 2px 0 20px; color: #fff; text-align: center;}
 header nav ul a:hover {color: rgba(248, 247, 247, 0.363); cursor: pointer;}
-header a i {margin-right: 20px; font-size: 1.2em; color: #fff}
+header a i {margin-right: 12px; font-size: 1.2em; color: #fff}
 header a i:hover {color: rgba(248, 247, 247, 0.363); cursor: pointer;}
 /* AJUSTANDO A RESPONSIVIDADE */
 @media (max-width: 1000px) {
@@ -69,7 +69,7 @@ main .grid-sobrenos li {height: 600px; width: 400px; padding: 20px; border-radiu
 .contato p {max-width: 800px; margin-bottom: 20px; text-align: center; font-size: 1.2em;}
 .contato hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
 .contato .buttons {display: flex; flex-wrap: wrap;}
-.contato .buttons li {height: 80px; width: 250px; padding: 20px; border-radius: 15px; flex-basis: 50%; background-color: #101010; text-align: center; margin: 0 0 10px}
+.contato .buttons li {height: 80px; width: 250px; padding: 25px; border-radius: 15px; flex-basis: 50%; background-color: #101010; text-align: center; margin: 0 0 10px;}
 .contato .buttons li a {color: #fff; font-size: 1.5em;}
 .contato .buttons li:hover {opacity: 0.8; cursor: pointer;}
 @media (max-width: 875px) {

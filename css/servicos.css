@@ -16,7 +16,7 @@ header a img {height: 200px; width: 750px}
 header nav ul {display: flex; margin-left: -10%;}
 header nav ul a {padding: 0 2px 0 20px; color: #fff; text-align: center;}
 header nav ul a:hover {color: rgba(248, 247, 247, 0.363); cursor: pointer;}
-header a i {margin-right: 20px; font-size: 1.2em; color: #fff}
+header a i {margin-right: 12px; font-size: 1.2em; color: #fff}
 header a i:hover {color: rgba(248, 247, 247, 0.363); cursor: pointer;}
 /* AJUSTANDO A RESPONSIVIDADE */
 @media (max-width: 1000px) {

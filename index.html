@@ -112,7 +112,7 @@
     $(".btn-menu").click(function (){$(".menu").show()});
     $(".btn-close").click(function(){$(".menu").hide()});
 
-    $('header, nav, a').click(function(e) {
+    $('header nav a #localizacao').click(function(e) {
         e.preventDefault();
         var id = $(this).attr('href'),
             targetOffset = $(id).offset().top;
