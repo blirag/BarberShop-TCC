@@ -14,110 +14,74 @@
 </head>
 <body>
     <header>
-        <a href="#"><img src="../img/banner.png" title="Barber Shop"></a>
+        <p class="name">Beatriz Lira</p>
         <nav>
-         <ul>
-             <li><a href="servicos-agendamento/servicos.html">Serviços</a></li>
-             <li><a href="servicos-agendamento/agendamento.html">Agendamento</a></li>
-             <li><a href="../index.html">Localização</a></li>
-             <li><a href="../index.html">Contato</a></li>
-         </ul>
-         </nav>
-         <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
- 
-         <button class="btn-menu">
-             <i class="fas fa-angle-down"></i> 
-         </button>
-         <section class="menu">
-             <a class="btn-close"> <i class="fa fa-times"></i></a>
-             <ul>
-                 <li><a href="servicos-agendamento/servicos.html"> Serviços </a></li>
-                 <li><a href="servicos-agendamento/agendamento.html"> Agendamento </a></li>
-                 <li><a href="../index.html"> Localização </i></a></li>
-                 <li><a href="../index.html"> Contato </a></li>
-                  <li><a href="../cadastro-login/cadastro.html"> Cadastro </a></li>
-                  <li><a href="../cadastro-login/login.html"> Login </a></li>
-             </ul>
-         </section>
-     </header>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../crud/editarconta.php">Editar conta</a></li>
+                <li><a href="../cadastro-login/logout.php">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
 
-     <section class="painel">
-        <ul class="opcoes">
-            <li><hr></li>
-            <li><b>Nome cliente</b></li>
-            <hr>
-            <li><a href="">Meus agendamentos</a></li>
-            <li><a href="http://">Novo agendamento</a></li>
-            <li><a href="http://">Editar conta</a></li>
-            <li><a href="http://">Excluir conta</a></li>
-        </ul>
-     </section>
-
-     <section class="historico">
-            <table>
-                <caption><b>Histórico de Agendamento</b></caption>
+    <section>
+        <h3>Histórico de Agendamento</h3>
+        <hr><br>
+        <table>
+            <thead>
+            <tr>
+                <th>Procedimento</th>
+                <th>Data</th>
+                <th>Horário</th>
+            </tr>
+            </thead>
+            <tbody>
                 <tr>
-                    <th>Procedimento</th>
-                    <th>Data</th>
-                    <th>Horário</th>
+                    <td>Barba completa</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
+                    <td><i class="fas fa-trash"></i></td>
                 </tr>
                 <tr>
-                    <td>Cabelo simples</td>
-                    <td>03/03/2020</td>
+                    <td>Barba completa</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
+                    <td><i class="fas fa-trash"></i></td>
+                </tr>
+                <tr>
+                    <td>Barba completa</td>
+                    <td>14/03/2020</td>
                     <td>10:30</td>
                 </tr>
                 <tr>
                     <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
                 </tr>
                 <tr>
                     <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
                 </tr>
                 <tr>
                     <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
                 </tr>
                 <tr>
                     <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
                 </tr>
                 <tr>
                     <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
+                    <td>14/03/2020</td>
+                    <td>10:30</td>
                 </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>21/02/2020</td>
-                    <td>18:30</td>
-                </tr>
-            </table>
-        </section>
+            </tbody>
+        </table>
+        <a href="../servicos-agendamento/agendamento.html">Novo agendamento</a>
+    </section>
 
         <footer>
             <h2 class="title">Atendimento</h2>
