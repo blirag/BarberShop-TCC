@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `barbershopbd`
+-- Banco de dados: `testetcc`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `tb_agendamento`
 --
 
-DROP TABLE IF EXISTS `tb_agendamento`;
-CREATE TABLE IF NOT EXISTS `tb_agendamento` (
+
+CREATE TABLE tb_agendamento (
   `idAgendamento` int(11) NOT NULL AUTO_INCREMENT,
   `idProprietario` int(11) NOT NULL,
   `dataAgendamento` date NOT NULL,
@@ -61,16 +61,14 @@ CREATE TABLE IF NOT EXISTS `tb_certificacoes` (
 
 --
 -- Estrutura da tabela `tb_cliente`
---
-
-DROP TABLE IF EXISTS `tb_cliente`;
-CREATE TABLE IF NOT EXISTS `tb_cliente` (
-  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
-  `idProprietario` int(11) NOT NULL,
-  `nome` varchar(45) NOT NULL,
-  `telefone` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(20) NOT NULL,
+-
+CREATE TABLE tb_cliente (
+  idCliente int NOT NULL primary key AUTO_INCREMENT,
+  idProprietario int NOT NULL,
+  nome varchar(45) NOT NULL,
+  telefone int(11) NOT NULL,
+  email varchar(255) NOT NULL,
+  senha varchar(20) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
