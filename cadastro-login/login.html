@@ -36,14 +36,14 @@
      </header>
 
     <section>
-        <form action="POST">
+        <form method="POST" action="../crud/login.php">
             <h1>Login</h1>
             <hr><br>
             <label for="email">Email</label><br>
-            <input type="email" placeholder=" seuemail@exemplo.com"><br><br>
+            <input type="email" placeholder=" seuemail@exemplo.com" name="email"><br><br>
             <label for="senha">Senha</label><br>
-            <input type="password" placeholder=" ********"><br><br>
-            <button type="submit">Entrar</button>
+            <input type="password" placeholder=" ********" name="senha"><br><br>
+            <button type="submit" name="btn-entrar">Entrar</button>
             <h5>Não possui uma conta? <a href="cadastro.html">Cadastre-se</a></h5>
         </form>
     </section>
