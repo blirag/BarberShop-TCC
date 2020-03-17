@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Tempo de geração: 16-Mar-2020 às 17:41
--- Versão do servidor: 8.0.18
--- versão do PHP: 7.3.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: 17-Mar-2020 às 19:08
+-- Versão do servidor: 5.7.26
+-- versão do PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `testetcc`
+-- Database: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `tb_agendamento`
 --
 
-
-CREATE TABLE tb_agendamento (
+DROP TABLE IF EXISTS `tb_agendamento`;
+CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   `idAgendamento` int(11) NOT NULL AUTO_INCREMENT,
   `idProprietario` int(11) NOT NULL,
   `dataAgendamento` date NOT NULL,
@@ -61,17 +61,26 @@ CREATE TABLE IF NOT EXISTS `tb_certificacoes` (
 
 --
 -- Estrutura da tabela `tb_cliente`
--
-CREATE TABLE tb_cliente (
-  idCliente int NOT NULL primary key AUTO_INCREMENT,
-  idProprietario int NOT NULL,
-  nome varchar(45) NOT NULL,
-  telefone int(11) NOT NULL,
-  email varchar(255) NOT NULL,
-  senha varchar(20) NOT NULL,
+--
+
+DROP TABLE IF EXISTS `tb_cliente`;
+CREATE TABLE IF NOT EXISTS `tb_cliente` (
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `idProprietario` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `telefone` int(11) NOT NULL,
+  `email_cliente` varchar(255) NOT NULL,
+  `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_cliente`
+--
+
+INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES
+(4, 3, 'Aline', 970611082, 'aline@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -128,8 +137,8 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `dataNascimento` date NOT NULL,
   `telefone` int(11) NOT NULL,
   `salario` double NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(20) NOT NULL,
+  `email_funcionario` varchar(255) NOT NULL,
+  `senha_funcionario` varchar(20) NOT NULL,
   `idEndereco` int(11) NOT NULL,
   `idCustos` int(11) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
@@ -164,10 +173,17 @@ DROP TABLE IF EXISTS `tb_proprietario`;
 CREATE TABLE IF NOT EXISTS `tb_proprietario` (
   `idProprietario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(20) NOT NULL,
+  `email_proprietario` varchar(255) NOT NULL,
+  `senha_proprietario` varchar(32) NOT NULL,
   PRIMARY KEY (`idProprietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_proprietario`
+--
+
+INSERT INTO `tb_proprietario` (`idProprietario`, `nome`, `email_proprietario`, `senha_proprietario`) VALUES
+(3, 'Junior', 'juniorlima@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -187,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
