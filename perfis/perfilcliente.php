@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    require_once '../crud/conexaoDB.php';
+
+    $idCliente = $_SESSION['id_cliente'];
+    $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
+    $result = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_array($result);
+    mysqli_close($conexao);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,8 +25,9 @@
     <link rel="stylesheet" href="../css/perfilcliente.css">
 </head>
 <body>
+    <!--
     <header>
-        <p class="name">Beatriz Lira</p>
+        <p class="name"><?php echo $dados['nome'] ?></p>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>

@@ -10,19 +10,19 @@ if(isset($_POST['btn-entrar'])){
         echo "Todos os campos precisam ser preenchidos";
     }
     else{
-        $sql = "SELECT email_cliente FROM tb_cliente WHERE email_cliente = '$email'";
+        $sql = "SELECT email_funcionario FROM tb_funcionario WHERE email_funcionario = '$email'";
         $result = mysqli_query($conexao, $sql);
         
         if(mysqli_num_rows($result) > 0){
             $senha = md5($senha);
-            $sql = "SELECT * FROM tb_cliente WHERE email_cliente = '$email' AND senha_cliente = '$senha'";
+            $sql = "SELECT * FROM tb_funcionario WHERE email_funcionario = '$email' AND senha_funcionario = '$senha'";
             $result = mysqli_query($conexao, $sql);
 
             if(mysqli_num_rows($result) == 1){
                 $dados = mysqli_fetch_array($result);
 
-                $_SESSION['cliente_logado'] = true;
-                $_SESSION['id_cliente'] = $dados['idCliente'];
+                $_SESSION['funcionario_logado'] = true;
+                $_SESSION['id_funcionario'] = $dados['idFuncionario'];
                 header ('location: ../perfis/perfilcliente.php');
             }
             else {
