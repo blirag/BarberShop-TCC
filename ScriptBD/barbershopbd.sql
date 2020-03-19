@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 17-Mar-2020 às 19:08
--- Versão do servidor: 5.7.26
--- versão do PHP: 7.2.18
+-- Host: 127.0.0.1:3308
+-- Tempo de geração: 19-Mar-2020 às 21:11
+-- Versão do servidor: 8.0.18
+-- versão do PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barbershopbd`
+-- Banco de dados: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -73,14 +73,14 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_cliente`
 --
 
 INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES
-(4, 3, 'Aline', 970611082, 'aline@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+(37, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -91,13 +91,15 @@ INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `em
 DROP TABLE IF EXISTS `tb_endereco`;
 CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `idEndereco` int(11) NOT NULL AUTO_INCREMENT,
+  `idFuncionario` int(11) NOT NULL,
   `cep` int(11) NOT NULL,
   `cidade` varchar(45) NOT NULL,
   `estado` varchar(45) NOT NULL,
   `rua` varchar(255) NOT NULL,
   `numero` int(11) NOT NULL,
   `complemento` varchar(255) NOT NULL,
-  PRIMARY KEY (`idEndereco`)
+  PRIMARY KEY (`idEndereco`),
+  KEY `idFuncionarioFK` (`idFuncionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -139,13 +141,11 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `salario` double NOT NULL,
   `email_funcionario` varchar(255) NOT NULL,
   `senha_funcionario` varchar(20) NOT NULL,
-  `idEndereco` int(11) NOT NULL,
   `idCustos` int(11) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   KEY `idProprietarioFK` (`idProprietario`),
-  KEY `idEnderecoFK` (`idEndereco`),
   KEY `isCustosFK` (`idCustos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
@@ -221,6 +221,12 @@ ALTER TABLE `tb_cliente`
   ADD CONSTRAINT `idProprietarioFkCliente` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
+-- Limitadores para a tabela `tb_endereco`
+--
+ALTER TABLE `tb_endereco`
+  ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
+
+--
 -- Limitadores para a tabela `tb_financas`
 --
 ALTER TABLE `tb_financas`
@@ -233,7 +239,6 @@ ALTER TABLE `tb_financas`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `idCustosFkFuncionario` FOREIGN KEY (`idCustos`) REFERENCES `tb_gastos` (`idGastos`),
-  ADD CONSTRAINT `idEnderecoFkFuncionario` FOREIGN KEY (`idEndereco`) REFERENCES `tb_endereco` (`idEndereco`),
   ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
