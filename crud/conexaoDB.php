@@ -1,12 +1,9 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "");
-$bancoSelect = mysqli_select_db($conexao, "barbershopbd");
+$conexao = mysqli_connect("localhost", "root", "","barbershopbd", "3308");
 
-if($conexao){
-	echo"Conexão realizada com sucesso";
-}
-else{
+
+if(!$conexao){
 	die("Falha na conexão : ->".mysqli_error());
 }
 

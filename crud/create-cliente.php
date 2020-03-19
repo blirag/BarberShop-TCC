@@ -8,14 +8,21 @@ $telefone = $_POST['frm_telefone'];
 $email = $_POST['frm_email'];
 $senha = $_POST['frm_senha'];
 
-$sql = "INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email`, `senha`) VALUES (NULL, '2', '$nome', '$telefone', '$email', '$senha');";
+$sql = "insert into `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES (NULL, '3', '$nome', '$telefone', '$email', '$senha')";
 
 if ($conexao->query($sql) === TRUE) {
-    echo "New record created successfully";
+
+   echo"<script language='javascript' type = 'text/javascript' > alert('Cadastrado com sucesso!');window.location.href = '../cadastro-login/login.html'; </script> " ;
+
+
+
 } else {
     echo "Error: " . $sql . "<br>" . $conexao->error;
 }
 
 $conexao->close();
+
+
+
 
 ?>
