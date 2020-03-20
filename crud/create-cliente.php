@@ -8,6 +8,7 @@ $telefone = $_POST['frm_telefone'];
 $email = $_POST['frm_email'];
 $senha = $_POST['frm_senha'];
 
+$senha = md5($senha);
 $sql = "insert into `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES (NULL, '3', '$nome', '$telefone', '$email', '$senha')";
 
 if ($conexao->query($sql) === TRUE) {

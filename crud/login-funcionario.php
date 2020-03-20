@@ -23,7 +23,7 @@ if(isset($_POST['btn-entrar'])){
 
                 $_SESSION['funcionario_logado'] = true;
                 $_SESSION['id_funcionario'] = $dados['idFuncionario'];
-                header ('location: ../perfis/perfilcliente.php');
+                header ('location: ../perfis/perfilfuncionario.php');
             }
             else {
                 echo "Usuário e senha não conferem";

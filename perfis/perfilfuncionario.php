@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    require_once '../crud/conexaoDB.php';
+
+    $idFuncionario = $_SESSION['id_funcionario'];
+    $sql = "SELECT * FROM tb_funcionario WHERE idFuncionario = '$idFuncionario'";
+    $result = mysqli_query($sql);
+    $dados = mysqli_fetch_array($result);
+    mysqli_close($conexao);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +26,7 @@
 </head>
 <body>
     <header>
-        <p class="name">Beatriz Lira</p>
+        <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>

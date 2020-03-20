@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     require_once '../crud/conexaoDB.php';
@@ -25,9 +26,8 @@
     <link rel="stylesheet" href="../css/perfilcliente.css">
 </head>
 <body>
-    <!--
     <header>
-        <p class="name"><?php echo $dados['nome'] ?></p>
+        <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
