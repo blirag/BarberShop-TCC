@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Tempo de geração: 19-Mar-2020 às 21:11
+-- Tempo de geração: 20-Mar-2020 às 19:31
 -- Versão do servidor: 8.0.18
 -- versão do PHP: 7.3.12
 
@@ -73,14 +73,14 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_cliente`
 --
 
 INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES
-(37, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '123');
+(40, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -141,11 +141,16 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `salario` double NOT NULL,
   `email_funcionario` varchar(255) NOT NULL,
   `senha_funcionario` varchar(20) NOT NULL,
-  `idCustos` int(11) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
-  KEY `idProprietarioFK` (`idProprietario`),
-  KEY `isCustosFK` (`idCustos`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  KEY `idProprietarioFK` (`idProprietario`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_funcionario`
+--
+
+INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
+(8, 3, 'Erick', '052098478', 123, '1999-02-20', 2147483647, 0, 'erick@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -156,11 +161,13 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
 DROP TABLE IF EXISTS `tb_gastos`;
 CREATE TABLE IF NOT EXISTS `tb_gastos` (
   `idGastos` int(11) NOT NULL AUTO_INCREMENT,
+  `idFuncionario` int(11) NOT NULL,
   `gastosVariaveis` double NOT NULL,
   `gastosFixos` double NOT NULL,
   `idProprietario` int(11) NOT NULL,
   PRIMARY KEY (`idGastos`),
-  KEY `idProprietarioFK` (`idProprietario`) USING BTREE
+  KEY `idProprietarioFK` (`idProprietario`) USING BTREE,
+  KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -238,13 +245,13 @@ ALTER TABLE `tb_financas`
 -- Limitadores para a tabela `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
-  ADD CONSTRAINT `idCustosFkFuncionario` FOREIGN KEY (`idCustos`) REFERENCES `tb_gastos` (`idGastos`),
   ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_gastos`
 --
 ALTER TABLE `tb_gastos`
+  ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --

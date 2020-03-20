@@ -14,7 +14,7 @@ if(isset($_POST['btn-entrar'])){
         $result = mysqli_query($conexao, $sql);
         
         if(mysqli_num_rows($result) > 0){
-            $senha = md5($senha);
+            
             $sql = "SELECT * FROM tb_funcionario WHERE email_funcionario = '$email' AND senha_funcionario = '$senha'";
             $result = mysqli_query($conexao, $sql);
 
