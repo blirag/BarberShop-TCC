@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Tempo de geração: 19-Mar-2020 às 21:11
--- Versão do servidor: 8.0.18
--- versão do PHP: 7.3.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: 20-Mar-2020 às 00:58
+-- Versão do servidor: 5.7.26
+-- versão do PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `barbershopbd`
+-- Database: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -68,19 +68,20 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `idProprietario` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` bigint(11) NOT NULL,
   `email_cliente` varchar(255) NOT NULL,
   `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_cliente`
 --
 
 INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES
-(37, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '123');
+(37, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(38, 3, 'Beatriz Lira', 963087264, 'beatrizliragonzaga@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -135,9 +136,9 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `idProprietario` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `rg` varchar(9) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `cpf` bigint(11) NOT NULL,
   `dataNascimento` date NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` bigint(11) NOT NULL,
   `salario` double NOT NULL,
   `email_funcionario` varchar(255) NOT NULL,
   `senha_funcionario` varchar(20) NOT NULL,
@@ -203,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
