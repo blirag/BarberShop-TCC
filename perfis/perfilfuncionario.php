@@ -5,7 +5,7 @@
 
     $idFuncionario = $_SESSION['id_funcionario'];
     $sql = "SELECT * FROM tb_funcionario WHERE idFuncionario = '$idFuncionario'";
-    $result = mysqli_query($sql);
+    $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
     mysqli_close($conexao);
 ?>

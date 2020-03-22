@@ -43,6 +43,14 @@
                 <th></th>
             </tr>
             </thead>
+
+            <?php
+                $sql = "SELECT * FROM tb_funcionario";
+                $result = mysqli_query($conexao, $sql);
+
+                if(mysqli_fetch)
+            ?>
+
             <tbody>
                 <tr>
                     <td><i class="fas fa-spinner"></i></td>
@@ -118,20 +126,6 @@
                     <td>Junior Souza</td>
                     <td>Caixa</td>
                     <td>R$ 1000,00</td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-edit"></i></td>
-                    <td>Bruno Guimarães</td>
-                    <td>Cabeleireiro</td>
-                    <td>R$ 1500,00</td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-edit"></i></td>
-                    <td>Amanda Alves </td>
-                    <td>Cabeleireiro</td>
-                    <td>R$ 1650,00</td>
                     <td><i class="fas fa-trash"></i></td>
                 </tr>
             </tbody>

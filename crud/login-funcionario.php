@@ -26,11 +26,14 @@ if(isset($_POST['btn-entrar'])){
                 header ('location: ../perfis/perfilfuncionario.php');
             }
             else {
-                echo "Usuário e senha não conferem";
+                echo "<script language='javascript' type='text/javascript'> alert('Usuário e senha não conferem');</script>";
+                
             }
         }
         else {
-            echo "Usuário inexistente";
+            echo "<script language='javascript' type='text/javascript'> alert('Usuário inexistente'); 
+            </script>";
+            
         }
     } 
 }

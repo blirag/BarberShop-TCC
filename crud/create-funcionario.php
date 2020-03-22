@@ -12,6 +12,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $salario = $_POST['salario'];
 
+$senha = md5($senha);
 $sql = "INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES (NULL, '3', '$nome', '$rg', '$cpf', '$dataNascimento', '$telefone', '$salario', '$email', '$senha')";
 
 if ($conexao->query($sql) === TRUE) {
