@@ -19,18 +19,19 @@ if(isset($_POST['btn-entrar'])){
             $result = mysqli_query($conexao, $sql);
 
             if(mysqli_num_rows($result) == 1){
-                $dados = mysqli_fetch_array($result);
 
-                $_SESSION['cliente_logado'] = true;
-                $_SESSION['id_cliente'] = $dados['idCliente'];
+                session_start();
+
+                $dados = mysqli_fetch_array($result);
+                $_SESSION['cliente'] = $dados['idCliente'];
                 header ('location: ../perfis/perfilcliente.php');
             }
             else {
-                echo "<script language='javascript' type='text/javascript'> alert('Usuário e senha não conferem');</script>";
+                echo "<script language='javascript' type='text/javascript'> alert('Usuário ou senha não conferem, por favor tente novamente...');window.location = '../cadastro-login/login.html'</script>";
             }
         }
         else {
-            echo "<script language='javascript' type='text/javascript'> alert('Usuário inexistente'); 
+            echo "<script language='javascript' type='text/javascript'> alert('Usuário inexistente, cadastre-se ou tente novamente.../');window.location = '../cadastro-login/login.html'
             </script>";
         }
     } 

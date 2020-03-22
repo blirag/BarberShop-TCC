@@ -4,7 +4,7 @@
 
     require_once '../crud/conexaoDB.php';
 
-    $idCliente = $_SESSION['id_cliente'];
+    $idCliente = $_SESSION['cliente'];
     $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
     $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
