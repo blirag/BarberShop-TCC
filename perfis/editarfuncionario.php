@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    require_once '../crud/conexaoDB.php';
+    
+    if(isset($_GET['idFuncionario'])){
+        $idFuncionario = mysqli_escape_string($conexao, $_GET['idFuncionario']);
+        $sql = "SELECT * FROM tb_funcionario WHERE idFuncionario = '$idFuncionario'";
+        $result = mysqli_query($conexao, $sql);
+        $dados = mysqli_fetch_array($result);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastrologin.css">
     <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
-    <title>Cadastrar Funcionário</title>
+    <title>Editar Funcionário</title>
 </head>
 <body>
     <header>
@@ -35,26 +47,25 @@
         </section>
      </header>
 <section>
-     <form method="POST" action="../crud/create-funcionario.php">
-        <h2>Cadastrar Funcionário</h2>
+     <form method="POST" action="../crud/update-funcionario.php">
+        <h2>Editar Funcionário</h2>
         <hr style="width: 350px; margin-left: 70px"><br>
+        <input type="hidden" name="id" value="<?php echo $dados['idFuncionario'];?>">
         <label for="nome">Nome</label><br>
-        <input type="text" name="nome" placeholder=" Primeiro e segundo nome"><br><br>
+        <input type="text" name="nome" value="<?php echo $dados['nome']; ?>"><br><br>
         <label for="datanasc">Data de Nascimento</label><br>
-        <input type="date" name="datanasc"><br><br>
+        <input type="date" name="datanasc" value="<?php echo $dados['dataNascimento']; ?>"><br><br>
         <label for="rg">RG</label><br>
-        <input type="text" name="rg" placeholder="000.000.000-0"><br><br>
+        <input type="text" name="rg" value="<?php echo $dados['rg']; ?>"><br><br>
         <label for="cpf">Cpf</label><br>
-        <input type="text" name="cpf" placeholder="000.000.000-00"><br><br>
+        <input type="text" name="cpf" value="<?php echo $dados['cpf']; ?>"><br><br>
         <label for="telefone">Telefone</label><br>
-        <input type="text" name="telefone" placeholder=" (00) 00000-0000"><br><br>
+        <input type="text" name="telefone" value="<?php echo $dados['telefone']; ?>"><br><br>
         <label for="email">Email</label><br>
-        <input type="email" name="email" placeholder=" seuemail@exemplo.com"><br><br>
-        <label for="senha">Senha</label><br>
-        <input type="password" name="senha" placeholder=" ********"><br><br>
+        <input type="email" name="email" value="<?php echo $dados['email_funcionario']; ?>"><br><br>
         <label for="salario">Salário</label><br>
-        <input type="text" name="salario" placeholder="R$"><br><br>
-        <button type="submit">Cadastrar</button>
+        <input type="text" name="salario" value="<?php echo $dados['salario']; ?>"><br><br>
+        <button type="submit" name="btn-atualizar">Atualizar</button>
     </form>
 </section>
 

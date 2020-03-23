@@ -15,7 +15,7 @@
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/perfilcliente.css">
+    <link rel="stylesheet" href="../css/perfis.css">
 </head>
 <body>
     <header>
@@ -43,14 +43,6 @@
                 <th></th>
             </tr>
             </thead>
-
-            <?php
-                $sql = "SELECT * FROM tb_funcionario";
-                $result = mysqli_query($conexao, $sql);
-
-                if(mysqli_fetch)
-            ?>
-
             <tbody>
                 <tr>
                     <td><i class="fas fa-spinner"></i></td>
@@ -115,19 +107,41 @@
             <tr>
                 <th></th>
                 <th>Nome</th>
-                <th>Cargo</th>
+                <th>Email</th>
                 <th>Salário</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
+                <?php
+                $sql = "SELECT * FROM tb_funcionario";
+                $result = mysqli_query($conexao, $sql);
+
+                if(mysqli_num_rows($result) > 0){
+                    while($dados = mysqli_fetch_array($result)){
+                ?>
+
                 <tr>
-                    <td><i class="fas fa-edit"></i></td>
-                    <td>Junior Souza</td>
-                    <td>Caixa</td>
-                    <td>R$ 1000,00</td>
-                    <td><i class="fas fa-trash"></i></td>
+                    <td><a href="editarfuncionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-edit"></i></a></td>
+                    <td><?php echo $dados['nome']; ?></td>
+                    <td><?php echo $dados['email_funcionario'] ?></td>
+                    <td><?php echo $dados['salario']; ?></td>
+                    <td><a href="../crud/delete-funcionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-trash"></i></td>
+
+                    
                 </tr>
+                    <?php }
+                        } 
+                        else { ?>
+                            <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    <?php    }
+                    ?>
             </tbody>
         </table>
         <a href="../cadastro-login/cadastro-funcionario.html">Novo Funcionário</a>

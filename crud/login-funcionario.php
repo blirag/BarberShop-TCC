@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once 'conexaoDB.php';
 
 if(isset($_POST['btn-entrar'])){
@@ -7,7 +7,7 @@ if(isset($_POST['btn-entrar'])){
     $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
     if(empty($email) || empty($senha)){
-        echo "Todos os campos precisam ser preenchidos";
+        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../cadastro-login/login-funcionario.html'</script>";
     }
     else{
         $sql = "SELECT email_funcionario FROM tb_funcionario WHERE email_funcionario = '$email'";
@@ -26,12 +26,11 @@ if(isset($_POST['btn-entrar'])){
                 header ('location: ../perfis/perfilfuncionario.php');
             }
             else {
-                echo "<script language='javascript' type='text/javascript'> alert('Usuário e senha não conferem');</script>";
-                
+                echo "<script language='javascript' type='text/javascript'> alert('Usuário ou senha não conferem, por favor tente novamente...');window.location = '../cadastro-login/login-funcionario.html'</script>";
             }
         }
         else {
-            echo "<script language='javascript' type='text/javascript'> alert('Usuário inexistente'); 
+            echo "<script language='javascript' type='text/javascript'> alert('Usuário inexistente, cadastre-se ou tente novamente...');window.location = '../cadastro-login/login-funcionario.html'
             </script>";
             
         }

@@ -1,7 +1,7 @@
 <?php
 
 
-include"conexaoDB.php";
+include "conexaoDB.php";
 
 $nome = $_POST['nome'];
 $dataNascimento = $_POST['datanasc'];

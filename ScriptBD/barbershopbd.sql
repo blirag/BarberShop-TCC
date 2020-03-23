@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 22-Mar-2020 às 01:35
+-- Generation Time: 23-Mar-2020 às 20:59
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `idProprietario` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` bigint(11) NOT NULL,
   `email_cliente` varchar(255) NOT NULL,
   `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
@@ -134,23 +134,23 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `idFuncionario` int(11) NOT NULL AUTO_INCREMENT,
   `idProprietario` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `rg` varchar(9) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `rg` varchar(10) NOT NULL,
+  `cpf` bigint(11) NOT NULL,
   `dataNascimento` date NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` bigint(11) NOT NULL,
   `salario` double NOT NULL,
   `email_funcionario` varchar(255) NOT NULL,
   `senha_funcionario` varchar(32) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   KEY `idProprietarioFK` (`idProprietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_funcionario`
 --
 
 INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
-(8, 3, 'Erick', '052098478', 123, '1999-02-20', 2147483647, 0, 'erick@gmail.com', '202cb962ac59075b964b07152d234b70');
+(10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
