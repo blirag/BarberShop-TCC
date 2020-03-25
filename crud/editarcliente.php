@@ -17,9 +17,9 @@
         <p class="name">Beatriz Lira</p>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="../crud/editarconta.php">Editar conta</a></li>
-                <li><a href="../cadastro-login/logout.php">Sair</a></li>
+                <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
     </header>

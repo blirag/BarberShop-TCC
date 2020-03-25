@@ -21,13 +21,13 @@
 </head>
 <body>
     <header>
-        <a href="../index.html"><img src="../img/banner.png" alt="Barber Shop"></a>
+        <a href="../index.php"><img src="../img/banner.png" alt="Barber Shop"></a>
         <nav>
          <ul>
              <a href="../servicos-agendamento/servicos.html"><li>Serviços</li></a>
              <a href="../servicos-agendamento/agendamento.html"><li>Agendamento</li></a>
-             <a href="../index.html"><li>Contato</li></a>
-             <a href="../index.html"><li>Sobre</li></a>
+             <a href="../index.php"><li>Contato</li></a>
+             <a href="../index.php"><li>Sobre</li></a>
          </ul>
          </nav>
 

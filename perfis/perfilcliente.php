@@ -4,11 +4,16 @@
 
     require_once '../crud/conexaoDB.php';
 
+    if(!isset($_SESSION['cliente'])){
+        header ('location: ../cadastro-login/login.html');
+    }
+    else {
     $idCliente = $_SESSION['cliente'];
     $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
     $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
     mysqli_close($conexao);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +35,7 @@
         <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="../crud/update-cliente.php">Editar conta </a> </li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>

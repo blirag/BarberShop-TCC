@@ -23,6 +23,7 @@ if(isset($_POST['btn-entrar'])){
                 session_start();
 
                 $dados = mysqli_fetch_array($result);
+                $_SESSION['cliente'] = true;
                 $_SESSION['cliente'] = $dados['idCliente'];
                 header ('location: ../perfis/perfilcliente.php');
             }

@@ -3,11 +3,16 @@
 
     require_once '../crud/conexaoDB.php';
 
+    if(!isset($_SESSION['funcionario'])){
+        header ('location: ../cadastro-login/login-funcionario.html');
+    }
+    else {
     $idFuncionario = $_SESSION['id_funcionario'];
     $sql = "SELECT * FROM tb_funcionario WHERE idFuncionario = '$idFuncionario'";
     $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
     mysqli_close($conexao);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +34,7 @@
         <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
-                
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>

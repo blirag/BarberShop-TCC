@@ -17,6 +17,7 @@ header nav ul {display: flex; margin-left: -3%;}
 header nav ul a {padding: 0 15px; color: #fff}
 header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
 header a i {margin-right: 35px; font-size: 1.2em; color: #fff}
+header a i:hover {color: #000; background-color: #fff; cursor: pointer;}
 /* AJUSTANDO A RESPONSIVIDADE */
 @media (max-width: 1000px) {
     header {flex-direction: column; font-size: 1.2em; height: 250px}

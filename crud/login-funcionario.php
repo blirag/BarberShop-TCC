@@ -21,7 +21,7 @@ if(isset($_POST['btn-entrar'])){
             if(mysqli_num_rows($result) == 1){
                 $dados = mysqli_fetch_array($result);
 
-                $_SESSION['funcionario_logado'] = true;
+                $_SESSION['funcionario'] = true;
                 $_SESSION['id_funcionario'] = $dados['idFuncionario'];
                 header ('location: ../perfis/perfilfuncionario.php');
             }

@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    require_once 'crud/conexaoDB.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,7 +30,30 @@
             <li><a href="#contato">Contato</a></li>
         </ul>
         </nav>
-        <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
+
+        <?php
+        if(isset($_SESSION['cliente'])){
+        ?>
+            <a href="perfis/perfilcliente.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+        }
+        else if(isset($_SESSION['funcionario'])){
+        ?>
+            <a href="perfis/perfilfuncionario.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+        }
+        else if(isset($_SESSION['proprietario'])){
+        ?>
+            <a href="perfis/perfilproprietario.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+        }
+        else{
+        ?>
+            <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
+        <?php
+        }
+        ?>
+        
 
         <button class="btn-menu">
             <i class="fas fa-angle-down"></i> 

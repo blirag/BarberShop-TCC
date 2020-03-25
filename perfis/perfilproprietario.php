@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['proprietario']=true;
+    $_SESSION['proprietario'] = true;
     require_once '../crud/conexaoDB.php';
 ?>
 
@@ -23,7 +23,7 @@
         <p class="name">Beatriz Lira</p>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="#funcionario">Funcionários</a></li>
                 <li><a href="../crud/editarconta.php">Editar conta</a></li>
                 <li><a href="../crud/logout.php">Sair</a></li>
