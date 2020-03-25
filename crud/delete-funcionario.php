@@ -12,3 +12,5 @@
             echo "<script language='javascript' type='text/javascript'> alert('Erro ao deletar, tente novamente...'); window.location = '../perfis/perfilproprietario.php'</script>";
         }
     }
+
+?>

@@ -30,9 +30,8 @@
         <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../crud/editarconta.php">Editar conta</a></li>
-                <li><a href="../cadastro-login/logout.php">Sair</a></li>
+                <li><a href="../crud/update-cliente.php">Editar conta </a> </li>
+                <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
     </header>

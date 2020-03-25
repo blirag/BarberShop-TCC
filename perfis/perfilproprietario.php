@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION['proprietario']=true;
     require_once '../crud/conexaoDB.php';
 ?>
 
@@ -25,7 +26,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="#funcionario">Funcionários</a></li>
                 <li><a href="../crud/editarconta.php">Editar conta</a></li>
-                <li><a href="../cadastro-login/logout.php">Sair</a></li>
+                <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
     </header>
@@ -122,7 +123,7 @@
                 ?>
 
                 <tr>
-                    <td><a href="editarfuncionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="../crud/editarfuncionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-edit"></i></a></td>
                     <td><?php echo $dados['nome']; ?></td>
                     <td><?php echo $dados['email_funcionario'] ?></td>
                     <td><?php echo $dados['salario']; ?></td>

@@ -36,3 +36,4 @@ if(isset($_POST['btn-entrar'])){
         }
     } 
 }
+?>

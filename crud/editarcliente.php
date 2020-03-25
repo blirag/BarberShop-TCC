@@ -10,7 +10,7 @@
     src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/perfilcliente.css">
+    <link rel="stylesheet" href="../css/perfis.css">
 </head>
 <body>
     <header>

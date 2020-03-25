@@ -17,7 +17,7 @@ $sql = "INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`,
 
 if ($conexao->query($sql) === TRUE) {
 
-   echo"<script language='javascript' type = 'text/javascript' > alert('Cadastrado com sucesso!');window.location.href = '../cadastro-login/login-funcionario.html'; </script> " ;
+   echo"<script language='javascript' type = 'text/javascript' > alert('Cadastrado com sucesso!');window.location.href = '../perfis/perfilproprietario'; </script> " ;
 
 
 
