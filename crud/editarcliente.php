@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    require_once '../crud/conexaoDB.php';
+    
+    if(isset($_GET['idCliente'])){
+        $idCliente = mysqli_escape_string($conexao, $_GET['idCliente']);
+        $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
+        $result = mysqli_query($conexao, $sql);
+        $dados = mysqli_fetch_array($result);
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +27,7 @@
 </head>
 <body>
     <header>
-        <p class="name">Beatriz Lira</p>
+        <p class="name"><?php echo $dados['nome'] ?></p>
         <nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
@@ -28,15 +41,21 @@
         <form method="POST" action="../crud/update-cliente.php">
             <h1>Editar Dados</h1>
             <hr><br>
+            <input type="hidden" name="id" value="<?php echo $dados['idCliente'];?>">
+
             <label for="nome">Nome</label><br>
-            <input type="text" placeholder=" Primeiro e segundo nome"><br><br>
+            <input type="text" placeholder=" Primeiro e segundo nome" name="nome" value="<?php echo $dados['nome'] ?>"><br><br>
+
             <label for="telefone">Telefone</label><br>
-            <input type="text" placeholder=" (00) 00000-0000"><br><br>
+            <input type="text" placeholder=" (00) 00000-0000" name="telefone" value="<?php echo $dados['telefone'] ?>"> <br><br>
+
             <label for="email">Email</label><br>
-            <input type="email" placeholder=" seuemail@exemplo.com"><br><br>
+            <input type="email" placeholder=" seuemail@exemplo.com" name="email" value="<?php echo $dados['email_cliente'] ?>"><br><br>
+
             <label for="senha">Senha</label><br>
-            <input type="password" placeholder=" ********"><br><br>
-            <button type="submit">Atualizar</button>
+            <input type="password" placeholder=" ********" name="senha" value="<?php echo $dados['senha_cliente'] ?>"><br><br>
+
+            <button type="submit" name="btn-atualizar">Atualizar</button>
         </form>
     </section>
 

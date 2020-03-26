@@ -36,7 +36,7 @@
         <nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
-                <li><a href="../crud/update-cliente.php">Editar conta </a> </li>
+                <li><a href="../crud/editarcliente.php?idCliente=<?php echo $dados['idCliente'] ?>">Editar conta </a> </li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
