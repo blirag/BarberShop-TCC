@@ -11,7 +11,7 @@ if(isset($_POST['btn-atualizar'])){
     $sql = "UPDATE tb_cliente SET nome = '$nome', telefone = '$telefone', email_cliente = '$email', senha_cliente = '$senha' WHERE idCliente = '$idCliente'";
 
     if(mysqli_query($conexao, $sql)){
-        echo "<script language='javascript' type='text/javascript'> alert('Funcionário atualizado com sucesso!');window.location = '../perfis/perfilcliente.php'
+        echo "<script language='javascript' type='text/javascript'> alert('Conta atualizada com sucesso!');window.location = '../perfis/perfilcliente.php'
             </script>";
     }
     else {

@@ -24,8 +24,8 @@
         <a href="../index.php"><img src="../img/banner.png" alt="Barber Shop"></a>
         <nav>
          <ul>
-             <a href="../servicos-agendamento/servicos.html"><li>Serviços</li></a>
-             <a href="../servicos-agendamento/agendamento.html"><li>Agendamento</li></a>
+             <a href="../servicos-agendamento/servicos.php"><li>Serviços</li></a>
+             <a href="../servicos-agendamento/agendamento.php"><li>Agendamento</li></a>
              <a href="../index.php"><li>Contato</li></a>
              <a href="../index.php"><li>Sobre</li></a>
          </ul>
@@ -37,8 +37,8 @@
         <section class="menu">
             <a class="btn-close"> <i class="fa fa-times"></i></a>
             <ul>
-                <li><a href="../servicos-agendamento/servicos.html"> Serviços </a></li>
-                <li><a href="../servicos-agendamento/agendamento.html"> Agendamento </a></li>
+                <li><a href="../servicos-agendamento/servicos.php"> Serviços </a></li>
+                <li><a href="../servicos-agendamento/agendamento.php"> Agendamento </a></li>
                 <li><a href="../index.html"> Contato </i></a></li>
                 <li><a href="../index.html"> Sobre </a></li>
                  <li><a href="cadastro.html"> Cadastro </a></li>

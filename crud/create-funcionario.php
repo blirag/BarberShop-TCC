@@ -22,7 +22,7 @@ if ($conexao->query($sql) === TRUE) {
 
 
 } else {
-    echo "Error: " . $sql . "<br>" . $conexao->error;
+    echo "Error: " . $sql . "<br>" . $conexao->error();
 }
 
 $conexao->close();

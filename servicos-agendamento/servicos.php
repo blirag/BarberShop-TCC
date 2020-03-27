@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    
+    require_once '../crud/conexaoDB.php';
+
+    $sql = "SELECT nome FROM tb_funcionario";
+    $result = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,8 +41,8 @@
          <section class="menu">
              <a class="btn-close"> <i class="fa fa-times"></i></a>
              <ul>
-                 <li><a href="servicos.html"> Serviços </a></li>
-                 <li><a href="agendamento.html"> Agendamento </a></li>
+                 <li><a href="servicos.php"> Serviços </a></li>
+                 <li><a href="agendamento.php"> Agendamento </a></li>
                  <li><a href="../index.html#localizacao"> Localização </i></a></li>
                  <li><a href="../index.html#contato"> Contato </a></li>
                   <li><a href="../cadastro-login/cadastro.html"> Cadastro </a></li>
@@ -52,7 +62,7 @@
                 <p>Máquina + acabamento <br><br>
                 <i class="fas fa-stopwatch"></i> 20 minutos
                 </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
             </li>
             <li style="background-image: url(../img/servico2.jpg);">
                 <h4>Barba simples</h4>
@@ -61,7 +71,7 @@
                 <p>Navalha + máquina <br><br>
                 <i class="fas fa-stopwatch"></i> 20 minutos
                 </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
             </li>
             <li style="background-image: url(../img/servico3.jpeg);">
                 <h4>Cabelo completo</h4>
@@ -70,7 +80,7 @@
                 <p>Lavagem + tesoura + máquina + acabamento <br>
                 <i class="fas fa-stopwatch"></i> 30 minutos
                 </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
             </li>
             </ul>
             <ul class="grid1">
@@ -81,7 +91,16 @@
                 <p>Toalha quente + navalha + máquina + pós barba <br>
                 <i class="fas fa-stopwatch"></i> 30 minutos
                 </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
+            </li>
+            <li style="background-image: url(../img/servico6.jpeg);">
+                <h4>Cabelo e barba simples</h4>
+                <hr>
+                <h5>R$ 47,00</h5>
+                <p>Cabelo simples + barba simples <br>
+                <i class="fas fa-stopwatch"></i> 40 minutos
+                </p>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
             </li>
             <li style="background-image: url(../img/servico5.jpeg);">
                 <h4>Cabelo e barba completo</h4>
@@ -90,16 +109,7 @@
                 <p>Cabelo completo + barba completo <br><br>
                 <i class="fas fa-stopwatch"></i> 60 minutos
                 </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
-            </li>
-            <li style="background-image: url(../img/servico6.jpeg);">
-                <h4>Ilimitado</h4>
-                <hr>
-                <h5>R$ 140,00</h5>
-                <p>Aqui você manda – o que você quiser, quantas vezes precisar <br>
-                <i class="fas fa-stopwatch"></i> 25 - 60 minutos
-                </p>
-                <a href="agendamento.html" class="btn-agendar">Agendar</a>
+                <a href="agendamento.php" class="btn-agendar">Agendar</a>
             </li>
         </ul>
      </section>

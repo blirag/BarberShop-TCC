@@ -98,7 +98,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="../servicos-agendamento/agendamento.html">Novo agendamento</a>
+        <a href="../servicos-agendamento/agendamento.php">Novo agendamento</a>
     </section>
 
         <footer>

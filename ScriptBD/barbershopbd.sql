@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 23-Mar-2020 às 20:59
+-- Generation Time: 27-Mar-2020 às 00:46
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -73,14 +73,15 @@ CREATE TABLE IF NOT EXISTS `tb_cliente` (
   `senha_cliente` varchar(32) NOT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idProprietarioFK` (`idProprietario`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_cliente`
 --
 
 INSERT INTO `tb_cliente` (`idCliente`, `idProprietario`, `nome`, `telefone`, `email_cliente`, `senha_cliente`) VALUES
-(40, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '202cb962ac59075b964b07152d234b70');
+(40, 3, 'Erick Rodrigues', 2147483647, 'erick@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(41, 3, 'Beatriz Lira ', 11988141970, 'beatrizliragonzaga@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 
@@ -143,14 +144,15 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `senha_funcionario` varchar(32) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   KEY `idProprietarioFK` (`idProprietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_funcionario`
 --
 
 INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
-(10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70');
+(10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e');
 
 -- --------------------------------------------------------
 
@@ -207,7 +209,19 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
   `procedimento` varchar(45) NOT NULL,
   PRIMARY KEY (`idServicos`),
   KEY `idProprietarioFK` (`idProprietario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_servicos`
+--
+
+INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `procedimento`) VALUES
+(7, 3, '00:20:00', 32, 'Cabelo simples'),
+(8, 3, '00:20:00', 22, 'Barba simples'),
+(9, 3, '00:30:00', 45, 'Cabelo completo'),
+(10, 3, '00:30:00', 35, 'Barba completa'),
+(11, 3, '00:40:00', 47, 'Cabelo e barba simples'),
+(12, 3, '01:00:00', 70, 'Cabelo e barba completo');
 
 --
 -- Constraints for dumped tables

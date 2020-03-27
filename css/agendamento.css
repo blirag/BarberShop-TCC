@@ -38,6 +38,7 @@ section form button {width: 250px; height: 50px; border-radius: 20px; color: #ff
 ::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
 section form hr {border: solid 1px #000; width: 350px; margin-left: 70px}
 section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
+section select option {text-transform: uppercase;}
 
 footer {width: 100%; height: 300px; background-color: #101010; color: #fff; display: flex; flex-direction: column; align-items: center;}
 footer h2 {font-size: 1.3em; text-transform: uppercase; margin-top: 20px}

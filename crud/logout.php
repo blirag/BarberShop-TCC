@@ -1,6 +1,6 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "","barbershopbd", "3308");
+$conexao = mysqli_connect("localhost", "root", "","barbershopbd");
 
 $conexao->close();
 

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    
+    require_once '../crud/conexaoDB.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,8 +23,8 @@
         <a href="../index.php"><img src="../img/banner.png" title="Barber Shop"></a>
         <nav>
          <ul>
-             <li><a href="servicos.html">Serviços</a></li>
-             <li><a href="agendamento.html">Agendamento</a></li>
+             <li><a href="servicos.php">Serviços</a></li>
+             <li><a href="agendamento.php">Agendamento</a></li>
              <li><a href="../index.php#localizacao">Localização</a></li>
              <li><a href="../index.php#contato">Contato</a></li>
          </ul>
@@ -46,13 +52,22 @@
             <hr><br>
             <label for="procedimento">Procedimento</label><br>
             <select name="procedimento" id="procedimento">
-                <option value="--">--</option>
-                <option value="cabelosimples">Cabelo Simples R$ 32,00</option>
-                <option value="barbasimples">Barba Simples R$ 22,00</option>
-                <option value="cabelocompleto">Cabelo Completo R$ 45,00</option>
-                <option value="barbacompleta">Barba Completa R$ 35,00</option>
-                <option value="cabelobarba">Cabelo e barba completo R$ 70,00</option>
-                <option value="ilimitado">Ilimitado R$ 140,00</option>
+
+                <?php
+                    $sql = "SELECT procedimento, valor FROM tb_servicos";
+                    $result = mysqli_query($conexao, $sql);
+
+                    if(mysqli_num_rows($result)){
+                        while($dados = mysqli_fetch_array($result)){
+                ?>
+
+                <option value="cabelosimples"><?php echo $dados['procedimento'].' R$ '.$dados['valor']; ?></option>
+
+                <?php
+                       }
+                    }
+                ?>
+       
             </select><br><br>
             <label for="dataagenda">Data</label><br>
             <input type="date" name="dataagenda" id="dataagenda"><br><br>
@@ -60,10 +75,21 @@
             <input type="time" name="hora" id="hora"><br><br>
             <label for="profissional">Profissional</label><br>
             <select name="funcionario" id="funcionario">
-                <option value="--">--</option>
-                <option value="func1">Roberto</option>
-                <option value="func2">Carlos</option>
-                <option value="func3">Bruno</option>
+
+                <?php
+                    $sql = "SELECT nome FROM tb_funcionario";
+                    $result = mysqli_query($conexao, $sql);
+
+                    if(mysqli_num_rows($result)){
+                        while($dados = mysqli_fetch_array($result)){
+                ?>
+
+                <option value="func1"><?php echo $dados['nome']; ?></option>
+
+                <?php
+                       }
+                    }
+                ?>
             </select><br><br>
             <button type="submit">Agendar</button>
         </form>

@@ -24,8 +24,8 @@
        <a href="#"><img src="img/banner.png" title="Barber Shop"></a>
        <nav>
         <ul>
-            <li><a href="servicos-agendamento/servicos.html">Serviços</a></li>
-            <li><a href="servicos-agendamento/agendamento.html">Agendamento</a></li>
+            <li><a href="servicos-agendamento/servicos.php">Serviços</a></li>
+            <li><a href="servicos-agendamento/agendamento.php">Agendamento</a></li>
             <li><a href="#localizacao">Localização</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
@@ -61,8 +61,8 @@
         <section class="menu">
             <a class="btn-close"> <i class="fa fa-times"></i></a>
             <ul>
-                <li><a href="servicos-agendamento/servicos.html"> Serviços </a></li>
-                <li><a href="servicos-agendamento/agendamento.html"> Agendamento </a></li>
+                <li><a href="servicos-agendamento/servicos.php"> Serviços </a></li>
+                <li><a href="servicos-agendamento/agendamento.php"> Agendamento </a></li>
                 <li><a href="#localizacao"> Localização </i></a></li>
                 <li><a href="#contato"> Contato </a></li>
                  <li><a href="cadastro-login/cadastro.html"> Cadastro </a></li>
@@ -89,7 +89,7 @@
         <h3>Agende já seu horário</h3>
         <p>Buscando sempre o melhor para o cliente disponibilizamos o agendamento online onde você poderá escolher o melhor horário com o profissional de sua preferência</p>
         <hr>
-        <a class="btn-agendar" href="servicos-agendamento/agendamento.html">Agendar</a>
+        <a class="btn-agendar" href="servicos-agendamento/agendamento.php">Agendar</a>
         <ul class="grid">
             <li class="small" style="background-image: url(img/grid1.jpg);"></li>
             <li class="large" style="background-image: url(img/grid2.jpg);"></li>

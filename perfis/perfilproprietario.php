@@ -1,7 +1,18 @@
 <?php
     session_start();
-    $_SESSION['proprietario'] = true;
+
     require_once '../crud/conexaoDB.php';
+
+    if(!isset($_SESSION['proprietario'])){
+        header ('location: ../cadastro-login/login-funcionario.html');
+    }
+    else{
+        $idProprietario = $_SESSION['id_proprietario'];
+        $sql = "SELECT * FROM tb_proprietario WHERE idProprietario = '$idProprietario'";
+        $result = mysqli_query($conexao, $sql);
+        $dados = mysqli_fetch_array($result);
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +31,11 @@
 </head>
 <body>
     <header>
-        <p class="name">Beatriz Lira</p>
+        <p class="name"><?php echo $dados['nome']; ?></p>
         <nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="#funcionario">Funcionários</a></li>
-                <li><a href="../crud/editarconta.php">Editar conta</a></li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
@@ -97,7 +107,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="../servicos-agendamento/agendamento.html">Novo agendamento</a>
+        <a href="../servicos-agendamento/agendamento.php">Novo agendamento</a>
     </section>
 
     <section>
