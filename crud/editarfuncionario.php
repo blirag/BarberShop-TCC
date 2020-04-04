@@ -28,6 +28,8 @@
              <a href="../servicos-agendamento/agendamento.php"><li>Agendamento</li></a>
              <a href="../index.php"><li>Contato</li></a>
              <a href="../index.php"><li>Sobre</li></a>
+             <a href="../perfis/perfilproprietario.php"><li>Voltar</li></a>
+
          </ul>
          </nav>
 

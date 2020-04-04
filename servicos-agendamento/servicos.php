@@ -27,8 +27,8 @@
         <a href="../index.php"><img src="../img/banner.png" title="Barber Shop"></a>
         <nav>
          <ul>
-             <li><a href="servicos.html">Serviços</a></li>
-             <li><a href="agendamento.html">Agendamento</a></li>
+             <li><a href="../servicos-agendamento/servicos.php">Serviços</a></li>
+             <li><a href="../servicos-agendamento/agendamento.php">Agendamento</a></li>
              <li><a href="../index.php#localizacao">Localização</a></li>
              <li><a href="../index.php#contato">Contato</a></li>
          </ul>
