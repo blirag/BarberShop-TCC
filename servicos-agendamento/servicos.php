@@ -1,13 +1,3 @@
-<?php
-    session_start();
-    
-    require_once '../crud/conexaoDB.php';
-
-    $sql = "SELECT nome FROM tb_funcionario";
-    $result = mysqli_query($conexao, $sql);
-    $dados = mysqli_fetch_array($result);
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
