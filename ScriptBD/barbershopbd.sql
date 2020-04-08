@@ -231,48 +231,48 @@ INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `pr
 -- Limitadores para a tabela `tb_agendamento`
 --
 ALTER TABLE `tb_agendamento`
-  ADD CONSTRAINT `idFuncionarioFkAgendamento` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
-  ADD CONSTRAINT `idProprietarioFkAgendamento` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`),
-  ADD CONSTRAINT `idServicosFkAgendamento` FOREIGN KEY (`idServicos`) REFERENCES `tb_servicos` (`idServicos`);
+ADD CONSTRAINT `idFuncionarioFkAgendamento` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
+ADD CONSTRAINT `idProprietarioFkAgendamento` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`),
+ADD CONSTRAINT `idServicosFkAgendamento` FOREIGN KEY (`idServicos`) REFERENCES `tb_servicos` (`idServicos`);
 
 --
 -- Limitadores para a tabela `tb_cliente`
 --
 ALTER TABLE `tb_cliente`
-  ADD CONSTRAINT `idProprietarioFkCliente` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+ADD CONSTRAINT `idProprietarioFkCliente` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_endereco`
 --
 ALTER TABLE `tb_endereco`
-  ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
+ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
 
 --
 -- Limitadores para a tabela `tb_financas`
 --
 ALTER TABLE `tb_financas`
-  ADD CONSTRAINT `idAgendamentoFkFinancas` FOREIGN KEY (`idAgendamento`) REFERENCES `tb_agendamento` (`idAgendamento`),
-  ADD CONSTRAINT `idGastosFkFinancas` FOREIGN KEY (`idGastos`) REFERENCES `tb_gastos` (`idGastos`),
-  ADD CONSTRAINT `idProprietarioFkFinancas` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+ADD CONSTRAINT `idAgendamentoFkFinancas` FOREIGN KEY (`idAgendamento`) REFERENCES `tb_agendamento` (`idAgendamento`),
+ADD CONSTRAINT `idGastosFkFinancas` FOREIGN KEY (`idGastos`) REFERENCES `tb_gastos` (`idGastos`),
+ADD CONSTRAINT `idProprietarioFkFinancas` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
-  ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_gastos`
 --
 ALTER TABLE `tb_gastos`
-  ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
-  ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
+ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_servicos`
 --
 ALTER TABLE `tb_servicos`
-  ADD CONSTRAINT `idProprietarioFkServicos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+ADD CONSTRAINT `idProprietarioFkServicos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

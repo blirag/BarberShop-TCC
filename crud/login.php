@@ -7,7 +7,7 @@ if(isset($_POST['btn-entrar'])){
     $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
     if(empty($email) || empty($senha)){
-        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../cadastro-login/login-funcionario.html'</script>";
+        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../cadastro-login/login.html'</script>";
     }
     else{
         $sql = "SELECT email_cliente FROM tb_cliente WHERE email_cliente = '$email'";

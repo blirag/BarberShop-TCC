@@ -20,12 +20,12 @@ header a i {margin-right: 35px; font-size: 1.2em; color: #fff}
 header a i:hover {color: #000; background-color: #fff; cursor: pointer;}
 /* AJUSTANDO A RESPONSIVIDADE */
 @media (max-width: 1000px) {
-    header {flex-direction: column; font-size: 1.2em; height: 250px}
-    header a img {width: 700px; margin-left: 13%;}
-    header nav {display: none}
-    header #login {display: none}
-    header button {display: block; width: 600px; text-align: center; color: #fff; border-radius: 20px; cursor: pointer; border: 2px solid #fff; background-color: #000;}
-    header button i {font-size: 1.8em;}
+	header {flex-direction: column; font-size: 1.2em; height: 250px}
+	header a img {width: 700px; margin-left: 13%;}
+	header nav {display: none}
+	header #login {display: none}
+	header button {display: block; width: 600px; text-align: center; color: #fff; border-radius: 20px; cursor: pointer; border: 2px solid #fff; background-color: #000;}
+	header button i {font-size: 1.8em;}
 }
 
 section {display: flex; font-size: 1.5em; margin-top: 250px; flex-direction: column; align-items: center; text-transform: uppercase;}

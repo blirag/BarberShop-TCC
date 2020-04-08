@@ -1,18 +1,18 @@
 <?php
-    session_start();
+session_start();
 
-    require_once '../crud/conexaoDB.php';
+require_once '../crud/conexaoDB.php';
 
-    if(!isset($_SESSION['proprietario'])){
-        header ('location: ../cadastro-login/login-funcionario.html');
-    }
-    else{
-        $idProprietario = $_SESSION['id_proprietario'];
-        $sql = "SELECT * FROM tb_proprietario WHERE idProprietario = '$idProprietario'";
-        $result = mysqli_query($conexao, $sql);
-        $dados = mysqli_fetch_array($result);
-    }
-    
+if(!isset($_SESSION['proprietario'])){
+    header ('location: ../cadastro-login/login-funcionario.html');
+}
+else{
+    $idProprietario = $_SESSION['id_proprietario'];
+    $sql = "SELECT * FROM tb_proprietario WHERE idProprietario = '$idProprietario'";
+    $result = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_array($result);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,19 +40,24 @@
             </ul>
         </nav>
     </header>
+    <section>
+        <?php
+        require_once'../fullcalendar/demos/calendario.php';
+        ?>
+    </section>
 
     <section>
         <h3>Histórico de Agendamento</h3>
         <hr><br>
         <table>
             <thead>
-            <tr>
-                <th>Situação</th>
-                <th>Procedimento</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Situação</th>
+                    <th>Procedimento</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -115,13 +120,13 @@
         <hr><br>
         <table>
             <thead>
-            <tr>
-                <th></th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Salário</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th></th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Salário</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
                 <?php
@@ -130,21 +135,21 @@
 
                 if(mysqli_num_rows($result) > 0){
                     while($dados = mysqli_fetch_array($result)){
-                ?>
+                        ?>
 
-                <tr>
-                    <td><a href="../crud/editarfuncionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-edit"></i></a></td>
-                    <td><?php echo $dados['nome']; ?></td>
-                    <td><?php echo $dados['email_funcionario'] ?></td>
-                    <td><?php echo $dados['salario']; ?></td>
-                    <td><a href="../crud/delete-funcionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-trash"></i></td>
+                        <tr>
+                            <td><a href="../crud/editarfuncionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-edit"></i></a></td>
+                            <td><?php echo $dados['nome']; ?></td>
+                            <td><?php echo $dados['email_funcionario'] ?></td>
+                            <td><?php echo $dados['salario']; ?></td>
+                            <td><a href="../crud/delete-funcionario.php?idFuncionario=<?php echo $dados['idFuncionario'] ?>" id="icon"><i class="fas fa-trash"></i></td>
 
-                    
-                </tr>
-                    <?php }
-                        } 
-                        else { ?>
-                            <tr>
+                                
+                            </tr>
+                        <?php }
+                    } 
+                    else { ?>
+                        <tr>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -153,10 +158,10 @@
                         </tr>
                     <?php    }
                     ?>
-            </tbody>
-        </table>
-        <a href="../cadastro-login/cadastro-funcionario.html">Novo Funcionário</a>
-    </section>
+                </tbody>
+            </table>
+            <a href="../cadastro-login/cadastro-funcionario.html">Novo Funcionário</a>
+        </section>
 
         <footer>
             <h2 class="title">Atendimento</h2>
@@ -164,29 +169,29 @@
                 <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
                 <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
             </ul>
-    
+            
             <h2 class="title">Contato</h2>
             <ul class="infos">
                 <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
                 <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
             </ul>
-    
+            
             <p>© Barber Shop 2020 | Todos os direitos reservados</p>
         </footer>
-    
-    <script>
+        
+        <script>
         // função para o menu
         $(".btn-menu").click(function (){$(".menu").show()});
         $(".btn-close").click(function(){$(".menu").hide()});
 
         $('header nav a #funcionario').click(function(e) {
-        e.preventDefault();
-        var id = $(this).attr('href'),
+            e.preventDefault();
+            var id = $(this).attr('href'),
             targetOffset = $(id).offset().top;
-        $('html, body').animate({
-            scrollTop: targetOffset
-        }, 50);
-    });
+            $('html, body').animate({
+                scrollTop: targetOffset
+            }, 50);
+        });
     </script>
 </body>
 </html>
