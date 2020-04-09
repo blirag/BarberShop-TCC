@@ -15,11 +15,11 @@ if(isset($_POST['btn-atualizar'])){
 
     if(mysqli_query($conexao, $sql)){
         echo "<script language='javascript' type='text/javascript'> alert('Funcionário atualizado com sucesso!');window.location = '../perfis/perfilproprietario.php'
-            </script>";
+        </script>";
     }
     else {
         echo "<script language='javascript' type='text/javascript'> alert('Erro ao atualizar, tente novamente...');window.location = '../perfis/editarfuncionario.php'
-            </script>";
+        </script>";
     }
 }
 ?>

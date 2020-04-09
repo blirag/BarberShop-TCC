@@ -1,13 +1,13 @@
 <?php
-    session_start();
-    require_once '../crud/conexaoDB.php';
-    
-    if(isset($_GET['idCliente'])){
-        $idCliente = mysqli_escape_string($conexao, $_GET['idCliente']);
-        $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
-        $result = mysqli_query($conexao, $sql);
-        $dados = mysqli_fetch_array($result);
-    }
+session_start();
+require_once '../crud/conexaoDB.php';
+
+if(isset($_GET['idCliente'])){
+    $idCliente = mysqli_escape_string($conexao, $_GET['idCliente']);
+    $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
+    $result = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_array($result);
+}
 ?>
 
 
@@ -59,15 +59,15 @@
         </form>
     </section>
 
-        <footer>    
-            <h2 class="title">Contato</h2>
-            <ul class="infos">
-                <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
-                <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
-            </ul>
-    
-            <p>© Barber Shop 2020 | Todos os direitos reservados</p>
-        </footer>
+    <footer>    
+        <h2 class="title">Contato</h2>
+        <ul class="infos">
+            <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
+            <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
+        </ul>
+        
+        <p>© Barber Shop 2020 | Todos os direitos reservados</p>
+    </footer>
     
     <script>
         // função para o menu

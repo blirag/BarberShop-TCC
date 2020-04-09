@@ -1,18 +1,18 @@
 <?php
-    session_start();
+session_start();
 
-    require_once '../crud/conexaoDB.php';
+require_once '../crud/conexaoDB.php';
 
-    if(!isset($_SESSION['funcionario'])){
-        header ('location: ../cadastro-login/login-funcionario.html');
-    }
-    else {
+if(!isset($_SESSION['funcionario'])){
+    header ('location: ../cadastro-login/login-funcionario.html');
+}
+else {
     $idFuncionario = $_SESSION['id_funcionario'];
     $sql = "SELECT * FROM tb_funcionario WHERE idFuncionario = '$idFuncionario'";
     $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
-    mysqli_close($conexao);
-    }
+    $nome = $dados['nome'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 </head>
 <body>
     <header>
-        <p class="name"><?php echo $dados['nome']; ?></p>
+        <p class="name"><?php echo $nome; ?></p>
         <nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
@@ -45,85 +45,53 @@
         <hr><br>
         <table>
             <thead>
-            <tr>
-                <th>Situação</th>
-                <th>Procedimento</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Situação</th>
+                    <th>Procedimento</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
+            <?php
+                $select = "SELECT procedimento, dataAgendamento, horaInicio FROM tb_agendamento WHERE funcionario = '$nome'";
+                $result = mysqli_query($conexao, $select);
+
+                if(mysqli_num_rows($result)){
+                    while($dados = mysqli_fetch_array($result)){
+            ?>
                 <tr>
                     <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
+                    <td><?php echo $dados['procedimento'];?></td>
+                    <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
+                    <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
                     <td><i class="fas fa-trash"></i></td>
                 </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-spinner"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td><i class="fas fa-check-circle"></i></td>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
+            <?php
+                }
+            }
+            ?>
             </tbody>
         </table>
         <a href="../servicos-agendamento/agendamento.php">Novo agendamento</a>
     </section>
 
-        <footer>
-            <h2 class="title">Atendimento</h2>
-            <ul class="infos">
-                <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
-                <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
-            </ul>
-    
-            <h2 class="title">Contato</h2>
-            <ul class="infos">
-                <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
-                <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
-            </ul>
-    
-            <p>© Barber Shop 2020 | Todos os direitos reservados</p>
-        </footer>
+    <footer>
+        <h2 class="title">Atendimento</h2>
+        <ul class="infos">
+            <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
+            <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
+        </ul>
+        
+        <h2 class="title">Contato</h2>
+        <ul class="infos">
+            <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
+            <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
+        </ul>
+        
+        <p>© Barber Shop 2020 | Todos os direitos reservados</p>
+    </footer>
     
     <script>
         // função para o menu

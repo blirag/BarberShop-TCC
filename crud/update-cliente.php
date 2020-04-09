@@ -12,11 +12,11 @@ if(isset($_POST['btn-atualizar'])){
 
     if(mysqli_query($conexao, $sql)){
         echo "<script language='javascript' type='text/javascript'> alert('Conta atualizada com sucesso!');window.location = '../perfis/perfilcliente.php'
-            </script>";
+        </script>";
     }
     else {
         echo "<script language='javascript' type='text/javascript'> alert('Erro ao atualizar, tente novamente...');window.location = '../perfis/editarcliente.php'
-            </script>";
+        </script>";
     }
 }
 ?>
