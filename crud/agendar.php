@@ -17,8 +17,9 @@ $sql = "SELECT * FROM tb_agendamento WHERE funcionario = '$profissional'";
 $result = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_array($result);
 
+
 // condição está errada, não está funcionando esse primeiro if
-    if($dados['horaInicio'] == $horario && $dados['horaFim'] == $horario_final){
+    if($data == $dados['dataAgendamento'] && $horario == $dados['horaInicio'] && $horario_final <= $dados['horaFim']){
         echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, tente com outro profissional ou altere o horário');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
     else {

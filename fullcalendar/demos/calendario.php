@@ -7,7 +7,7 @@
 <script src='../fullcalendar/packages/core/main.js'></script>
 <script src='../fullcalendar/packages/interaction/main.js'></script>
 <script src='../fullcalendar/packages/daygrid/main.js'></script>
-<link href='../fullcalendar/packages/core/locales/pt-br.js' rel='stylesheet' />
+<script src='../fullcalendar/packages/core/locales/pt-br.js'></script>
 <script>
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -16,7 +16,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       locale: 'pt-br',
       plugins: [ 'interaction', 'dayGrid' ],
-      defaultDate: '2019-04-12',
+      //defaultDate: '2019-04-12',
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       /*events: '../crud/eventos.php',
