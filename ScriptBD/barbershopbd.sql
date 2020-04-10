@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 27-Mar-2020 às 00:46
+-- Generation Time: 10-Abr-2020 às 19:01
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -31,18 +31,28 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `tb_agendamento`;
 CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   `idAgendamento` int(11) NOT NULL AUTO_INCREMENT,
-  `idProprietario` int(11) NOT NULL,
+  `idProprietario` int(11) DEFAULT NULL,
   `dataAgendamento` date NOT NULL,
-  `horário` time NOT NULL,
+  `horaInicio` time NOT NULL,
   `procedimento` varchar(45) NOT NULL,
   `funcionario` varchar(45) NOT NULL,
-  `idFuncionario` int(11) NOT NULL,
-  `idServicos` int(11) NOT NULL,
+  `idFuncionario` int(11) DEFAULT NULL,
+  `idServicos` int(11) DEFAULT NULL,
+  `horaFim` time NOT NULL,
   PRIMARY KEY (`idAgendamento`),
   KEY `idProprietarioFK` (`idProprietario`),
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
   KEY `idServicosFK` (`idServicos`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_agendamento`
+--
+
+INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`) VALUES
+(1, 3, '2020-04-10', '10:30:00', 'CABELO E BARBA COMPLETO', 'Beatriz Lira', NULL, NULL, '11:45:00'),
+(4, 3, '2020-04-10', '10:30:00', 'BARBA SIMPLES', 'Marcos', NULL, NULL, '11:05:00'),
+(5, 3, '2020-04-11', '12:00:00', 'BARBA COMPLETA', 'Beatriz Lira', NULL, NULL, '12:45:00');
 
 -- --------------------------------------------------------
 
@@ -152,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
 
 INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
 (10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e');
+(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', '74be16979710d4c4e7c6647856088456');
 
 -- --------------------------------------------------------
 
@@ -216,12 +226,12 @@ CREATE TABLE IF NOT EXISTS `tb_servicos` (
 --
 
 INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `procedimento`) VALUES
-(7, 3, '00:20:00', 32, 'Cabelo simples'),
-(8, 3, '00:20:00', 22, 'Barba simples'),
-(9, 3, '00:30:00', 45, 'Cabelo completo'),
-(10, 3, '00:30:00', 35, 'Barba completa'),
-(11, 3, '00:40:00', 47, 'Cabelo e barba simples'),
-(12, 3, '01:00:00', 70, 'Cabelo e barba completo');
+(7, 3, '00:20:00', 32, 'CABELO SIMPLES'),
+(8, 3, '00:20:00', 22, 'BARBA SIMPLES'),
+(9, 3, '00:30:00', 45, 'CABELO COMPLETO'),
+(10, 3, '00:30:00', 35, 'BARBA COMPLETA'),
+(11, 3, '00:40:00', 47, 'CABELO E BARBA SIMPLES'),
+(12, 3, '01:00:00', 70, 'CABELO E BARBA COMPLETO');
 
 --
 -- Constraints for dumped tables
@@ -231,48 +241,48 @@ INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `pr
 -- Limitadores para a tabela `tb_agendamento`
 --
 ALTER TABLE `tb_agendamento`
-ADD CONSTRAINT `idFuncionarioFkAgendamento` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
-ADD CONSTRAINT `idProprietarioFkAgendamento` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`),
-ADD CONSTRAINT `idServicosFkAgendamento` FOREIGN KEY (`idServicos`) REFERENCES `tb_servicos` (`idServicos`);
+  ADD CONSTRAINT `idFuncionarioFkAgendamento` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
+  ADD CONSTRAINT `idProprietarioFkAgendamento` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`),
+  ADD CONSTRAINT `idServicosFkAgendamento` FOREIGN KEY (`idServicos`) REFERENCES `tb_servicos` (`idServicos`);
 
 --
 -- Limitadores para a tabela `tb_cliente`
 --
 ALTER TABLE `tb_cliente`
-ADD CONSTRAINT `idProprietarioFkCliente` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+  ADD CONSTRAINT `idProprietarioFkCliente` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_endereco`
 --
 ALTER TABLE `tb_endereco`
-ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
+  ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
 
 --
 -- Limitadores para a tabela `tb_financas`
 --
 ALTER TABLE `tb_financas`
-ADD CONSTRAINT `idAgendamentoFkFinancas` FOREIGN KEY (`idAgendamento`) REFERENCES `tb_agendamento` (`idAgendamento`),
-ADD CONSTRAINT `idGastosFkFinancas` FOREIGN KEY (`idGastos`) REFERENCES `tb_gastos` (`idGastos`),
-ADD CONSTRAINT `idProprietarioFkFinancas` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+  ADD CONSTRAINT `idAgendamentoFkFinancas` FOREIGN KEY (`idAgendamento`) REFERENCES `tb_agendamento` (`idAgendamento`),
+  ADD CONSTRAINT `idGastosFkFinancas` FOREIGN KEY (`idGastos`) REFERENCES `tb_gastos` (`idGastos`),
+  ADD CONSTRAINT `idProprietarioFkFinancas` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_funcionario`
 --
 ALTER TABLE `tb_funcionario`
-ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+  ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_gastos`
 --
 ALTER TABLE `tb_gastos`
-ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
-ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+  ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
+  ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_servicos`
 --
 ALTER TABLE `tb_servicos`
-ADD CONSTRAINT `idProprietarioFkServicos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+  ADD CONSTRAINT `idProprietarioFkServicos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
