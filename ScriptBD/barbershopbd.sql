@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 10-Abr-2020 às 19:01
--- Versão do servidor: 5.7.26
--- versão do PHP: 7.2.18
+-- Host: 127.0.0.1:3308
+-- Tempo de geração: 11-Abr-2020 às 18:37
+-- Versão do servidor: 8.0.18
+-- versão do PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barbershopbd`
+-- Banco de dados: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -39,20 +39,13 @@ CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   `idFuncionario` int(11) DEFAULT NULL,
   `idServicos` int(11) DEFAULT NULL,
   `horaFim` time NOT NULL,
+  `idCliente` int(11) NOT NULL,
   PRIMARY KEY (`idAgendamento`),
   KEY `idProprietarioFK` (`idProprietario`),
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
-  KEY `idServicosFK` (`idServicos`) USING BTREE
+  KEY `idServicosFK` (`idServicos`) USING BTREE,
+  KEY `idClienteFK` (`idCliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `tb_agendamento`
---
-
-INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`) VALUES
-(1, 3, '2020-04-10', '10:30:00', 'CABELO E BARBA COMPLETO', 'Beatriz Lira', NULL, NULL, '11:45:00'),
-(4, 3, '2020-04-10', '10:30:00', 'BARBA SIMPLES', 'Marcos', NULL, NULL, '11:05:00'),
-(5, 3, '2020-04-11', '12:00:00', 'BARBA COMPLETA', 'Beatriz Lira', NULL, NULL, '12:45:00');
 
 -- --------------------------------------------------------
 
@@ -234,13 +227,14 @@ INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `pr
 (12, 3, '01:00:00', 70, 'CABELO E BARBA COMPLETO');
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
 -- Limitadores para a tabela `tb_agendamento`
 --
 ALTER TABLE `tb_agendamento`
+  ADD CONSTRAINT `idClienteFKAgendamento` FOREIGN KEY (`idCliente`) REFERENCES `tb_cliente` (`idCliente`),
   ADD CONSTRAINT `idFuncionarioFkAgendamento` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
   ADD CONSTRAINT `idProprietarioFkAgendamento` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`),
   ADD CONSTRAINT `idServicosFkAgendamento` FOREIGN KEY (`idServicos`) REFERENCES `tb_servicos` (`idServicos`);
