@@ -62,7 +62,7 @@ else{
             </thead>
             <tbody>
             <?php
-                $sql = "SELECT procedimento, dataAgendamento, horaInicio, funcionario FROM tb_agendamento";
+                $sql = "SELECT idAgendamento, procedimento, dataAgendamento, horaInicio, funcionario FROM tb_agendamento";
                 $result = mysqli_query($conexao, $sql);
 
                 if(mysqli_num_rows($result)){
@@ -74,15 +74,22 @@ else{
                     <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
                     <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
                     <td><?php echo $dados['funcionario'];?></td>
-                    <td><i class="fas fa-trash"></i></td>
+                    <td><a href="../crud/delete-agendamento.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-trash"></i></a></td>
                 </tr>
-                <?php
+                <?php }
                     }
-                }
+                    else { ?>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                <?php   } 
                 ?>
             </tbody>
         </table>
-        <a href="../servicos-agendamento/agendamento.php">Novo agendamento</a>
     </section>
 
     <section>

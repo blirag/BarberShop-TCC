@@ -32,7 +32,7 @@ $dados = mysqli_fetch_array($result);
         }
 
         if(mysqli_query($conexao, $insert)){
-                echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../index.php'</script>";
+                echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
         }
         else {
             echo "<script language='javascript' type='text/javascript'> alert('Erro ao agendar, tente novamente!');window.location = '../servicos-agendamento/agendamento.php'</script>";
