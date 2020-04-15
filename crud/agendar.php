@@ -13,7 +13,7 @@ $tempo = $row['tempo'];
 $horario_final = strtotime($tempo) + strtotime($horario);
 $horario_final = date("H:i", strtotime('+15 minutes', $horario_final));
 
-$sql = "SELECT * FROM tb_agendamento WHERE funcionario = '$profissional'";
+$sql = "SELECT dataAgendamento, horaInicio, horaFim FROM tb_agendamento WHERE funcionario = '$profissional' AND dataAgendamento = '$data'";
 $result = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_array($result);
 
@@ -23,7 +23,13 @@ $dados = mysqli_fetch_array($result);
         echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, tente com outro profissional ou altere o horário');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
     else {
-        $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, IdFuncionario, IdServicos) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL)";
+        if(isset($_SESSION['cliente'])){
+            $idCliente = $_SESSION['cliente'];
+            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL, '$idCliente')";
+        }
+        else {
+            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, IdFuncionario, IdServicos) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL)";
+        }
 
         if(mysqli_query($conexao, $insert)){
                 echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../index.php'</script>";

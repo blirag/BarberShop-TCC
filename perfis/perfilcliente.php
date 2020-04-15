@@ -12,7 +12,6 @@ else {
     $sql = "SELECT * FROM tb_cliente WHERE idCliente = '$idCliente'";
     $result = mysqli_query($conexao, $sql);
     $dados = mysqli_fetch_array($result);
-    mysqli_close($conexao);
 }
 ?>
 
@@ -51,51 +50,27 @@ else {
                     <th>Procedimento</th>
                     <th>Data</th>
                     <th>Horário</th>
+                    <th>Funcionário</th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    $sql = mysqli_query($conexao, "SELECT procedimento, dataAgendamento, horaInicio, funcionario FROM tb_agendamento WHERE idCliente = '$idCliente'");
+
+                    if(mysqli_num_rows($sql)){
+                        while($dados = mysqli_fetch_array($sql)){
+                ?>
                 <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
+                    <td><?php echo $dados['procedimento'];?></td>
+                    <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
+                    <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
+                    <td><?php echo $dados['funcionario'];?></td>
                     <td><i class="fas fa-trash"></i></td>
                 </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                    <td><i class="fas fa-trash"></i></td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
-                <tr>
-                    <td>Barba completa</td>
-                    <td>14/03/2020</td>
-                    <td>10:30</td>
-                </tr>
+                <?php
+                    }
+                }
+                ?>
             </tbody>
         </table>
         <a href="../servicos-agendamento/agendamento.php">Novo agendamento</a>
