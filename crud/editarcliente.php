@@ -31,7 +31,7 @@ if(isset($_GET['idCliente'])){
         <nav>
             <ul>
                 <li><a href="../index.php">Home</a></li>
-                <li><a href="../crud/editarconta.php">Editar conta</a></li>
+                <li><a href="../perfis/perfilcliente.php">Voltar</a></li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
