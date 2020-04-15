@@ -23,13 +23,8 @@ $dados = mysqli_fetch_array($result);
         echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, tente com outro profissional ou altere o horário');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
     else {
-        if(isset($_SESSION['cliente'])){
             $idCliente = $_SESSION['cliente'];
             $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL, '$idCliente')";
-        }
-        else {
-            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, IdFuncionario, IdServicos) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL)";
-        }
 
         if(mysqli_query($conexao, $insert)){
                 echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
