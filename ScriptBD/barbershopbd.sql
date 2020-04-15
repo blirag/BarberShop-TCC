@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Tempo de geração: 11-Abr-2020 às 18:37
--- Versão do servidor: 8.0.18
--- versão do PHP: 7.3.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: 15-Abr-2020 às 18:15
+-- Versão do servidor: 5.7.26
+-- versão do PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `barbershopbd`
+-- Database: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -45,7 +45,14 @@ CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
   KEY `idServicosFK` (`idServicos`) USING BTREE,
   KEY `idClienteFK` (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_agendamento`
+--
+
+INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`, `idCliente`) VALUES
+(12, 3, '2020-04-16', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 40);
 
 -- --------------------------------------------------------
 
@@ -227,7 +234,7 @@ INSERT INTO `tb_servicos` (`idServicos`, `idProprietario`, `tempo`, `valor`, `pr
 (12, 3, '01:00:00', 70, 'CABELO E BARBA COMPLETO');
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
