@@ -37,22 +37,22 @@ if(!isset($_SESSION['cliente'])){
        <?php
     if(isset($_SESSION['cliente'])){
         ?>
-        <a href="perfis/perfilcliente.php" id="login"><i class="fas fa-user"></i></a>
+        <a href="../perfis/perfilcliente.php" id="login"><i class="fas fa-user"></i></a>
         <?php
     }
     else if(isset($_SESSION['funcionario'])){
         ?>
-        <a href="perfis/perfilfuncionario.php" id="login"><i class="fas fa-user"></i></a>
+        <a href="../perfis/perfilfuncionario.php" id="login"><i class="fas fa-user"></i></a>
         <?php
     }
     else if(isset($_SESSION['proprietario'])){
         ?>
-        <a href="perfis/perfilproprietario.php" id="login"><i class="fas fa-user"></i></a>
+        <a href="../perfis/perfilproprietario.php" id="login"><i class="fas fa-user"></i></a>
         <?php
     }
     else{
         ?>
-        <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
+        <a href="../cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
         <?php
     }
     ?>
