@@ -16,7 +16,10 @@ while($dados = mysqli_fetch_array($sql)){
 
     $eventos[] = ['id' => $id, 
                 'data' => $data,
-                'procedimento' => $procedimento, 'horaInicio' => $horaInicio, 'horaFim' => $horaFim, 'profissional' => $profissional];
+                'procedimento' => $procedimento, 
+                'horaInicio' => $horaInicio, 
+                'horaFim' => $horaFim, 
+                'profissional' => $profissional];
 }
 
 echo json_encode($eventos);

@@ -2,6 +2,10 @@
 session_start();
 
 require_once '../crud/conexaoDB.php';
+
+if(!isset($_SESSION['cliente'])){
+    echo "<script language='javascript' type='text/javascript'> alert('Faça o login ou cadastre-se para agendar!');window.location = '../cadastro-login/login.html'</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +33,29 @@ require_once '../crud/conexaoDB.php';
                <li><a href="../index.php#contato">Contato</a></li>
            </ul>
        </nav>
+
+       <?php
+    if(isset($_SESSION['cliente'])){
+        ?>
+        <a href="perfis/perfilcliente.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+    }
+    else if(isset($_SESSION['funcionario'])){
+        ?>
+        <a href="perfis/perfilfuncionario.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+    }
+    else if(isset($_SESSION['proprietario'])){
+        ?>
+        <a href="perfis/perfilproprietario.php" id="login"><i class="fas fa-user"></i></a>
+        <?php
+    }
+    else{
+        ?>
+        <a href="cadastro-login/login.html" id="login"><i class="fas fa-user"></i></a>
+        <?php
+    }
+    ?>
        
        <button class="btn-menu">
            <i class="fas fa-angle-down"></i> 
