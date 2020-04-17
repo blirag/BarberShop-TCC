@@ -17,11 +17,22 @@ $sql = "SELECT horaInicio,horaFim, funcionario FROM tb_agendamento WHERE funcion
 $result = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_array($result);
 
+$semana = date("N", strtotime($data));
+$data_atual = date_default_timezone_set('America/Sao_Paulo');
+$data_atual = date("d/m/Y", strtotime($data_atual));
+//$horario_atual = date("H:i");
 
-/* devemos colocar condicional de data para que agendamentos com mesmo horário porém em datas diferentes funcionem
-e para que não seja possivel agendar em uma data menor q a atual */
+/*Criada novas condições para checar o dia da semana e a data atual
+a condição de hora não deu certo, fiz $horario < $horario_atual
+a parte de dia da semana está dando certo, a parte de checar a data não pq não está permitindo agendar mesmo se a data for acima da atual ?????*/
 
-if($horario > $dados['horaFim'] && $horario != $dados['horaInicio']){
+if($semana == 7){
+    echo "<script language='javascript' type='text/javascript'> alert('Não abrimos de domingo, tente outro dia da semana!');window.location = '../servicos-agendamento/agendamento.php'</script>";
+}
+else if($data < $data_atual){
+    echo "<script language='javascript' type='text/javascript'> alert('Impossível agendar! A data escolhida já passou.');window.location = '../servicos-agendamento/agendamento.php'</script>";
+}
+else if($horario > $dados['horaFim'] && $horario != $dados['horaInicio']){
 
      $idCliente = $_SESSION['cliente'];
      $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL, '$idCliente')";
@@ -32,32 +43,11 @@ if($horario > $dados['horaFim'] && $horario != $dados['horaInicio']){
         else {
             echo "<script language='javascript' type='text/javascript'> alert('Erro ao agendar, tente novamente!');window.location = '../servicos-agendamento/agendamento.php'</script>";
         }
-
 }
-
-
 else {
-
-    
     if($horario == $dados['horaInicio'] or $horario < $dados['horaFim']){
-
         echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, verifique e tente novamente');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
-
-    else if($horario > $dados['horaFim'] && $horario != $dados['horaInicio'] && $profissional != $dados['funcionario']  ){
-
-
-        if(mysqli_query($conexao, $insert)){
-            echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
-        }
-        else {
-            echo "<script language='javascript' type='text/javascript'> alert('Erro ao agendar, tente novamente!');window.location = '../servicos-agendamento/agendamento.php'</script>";
-        }
-
-
-    }
-
-
 }
 
 
