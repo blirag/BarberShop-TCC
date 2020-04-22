@@ -40,7 +40,7 @@ $ano_atual = idate('Y');
 
 
 if(empty($procedimento) || empty($profissional) || empty($data) || empty($horario)){
-        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../perfis/perfilcliente.php'</script>";
+        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
 
 
