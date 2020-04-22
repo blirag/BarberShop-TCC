@@ -18,21 +18,27 @@ $result = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_array($result);
 
 $semana = date("N", strtotime($data));
-$data_atual = date_default_timezone_set('America/Sao_Paulo');
-$data_atual = date("d/m/Y", strtotime($data_atual));
-//$horario_atual = date("H:i");
 
-/*Criada novas condições para checar o dia da semana e a data atual
-a condição de hora não deu certo, fiz $horario < $horario_atual
-a parte de dia da semana está dando certo, a parte de checar a data não pq não está permitindo agendar mesmo se a data for acima da atual ?????*/
+
+
+
+$dia_agendamento = idate("d", strtotime($data));
+$mes_agendamento = idate("m", strtotime($data));
+$ano_agendamento = idate("Y", strtotime($data));
+
+$dia_atual = idate('d');
+$mes_atual = idate('m');
+$ano_atual = idate('Y');
+
 
 if($semana == 7){
     echo "<script language='javascript' type='text/javascript'> alert('Não abrimos de domingo, tente outro dia da semana!');window.location = '../servicos-agendamento/agendamento.php'</script>";
 }
-else if($data < $data_atual){
+else if($ano_agendamento < $ano_atual || $mes_agendamento < $mes_atual || $dia_agendamento<$dia_atual){
     echo "<script language='javascript' type='text/javascript'> alert('Impossível agendar! A data escolhida já passou.');window.location = '../servicos-agendamento/agendamento.php'</script>";
 }
-else if($horario > $dados['horaFim'] && $horario != $dados['horaInicio']){
+
+else if($horario > $dados['horaFim'] && $horario != $dados['horaInicio']  && $ano_agendamento >= $ano_atual && $mes_agendamento >= $mes_atual){
 
      $idCliente = $_SESSION['cliente'];
      $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento', '$profissional', '$horario_final', NULL, NULL, '$idCliente')";
