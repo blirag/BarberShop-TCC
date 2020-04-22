@@ -1,6 +1,6 @@
 <?php
 
-$conexao = mysqli_connect("localhost", "root", "","barbershopbd");
+include_once "conexaoDB.php";
 
 //$conexao = mysqli_connect("localhost", "root", "","barbershopbd");
 
