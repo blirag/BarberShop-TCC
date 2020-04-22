@@ -15,7 +15,12 @@ $horario_final = date("H:i", strtotime('+15 minutes', $horario_final));
 
 $sql = "SELECT horaInicio,horaFim, funcionario FROM tb_agendamento WHERE funcionario = '$profissional' AND dataAgendamento = '$data'";
 $result = mysqli_query($conexao, $sql);
-$dados = mysqli_fetch_array($result);
+
+if($result){
+    $dados = mysqli_fetch_array($result);
+
+}
+
 
 $semana = date("N", strtotime($data));
 
@@ -29,6 +34,15 @@ $ano_agendamento = idate("Y", strtotime($data));
 $dia_atual = idate('d');
 $mes_atual = idate('m');
 $ano_atual = idate('Y');
+
+
+
+
+
+if(empty($procedimento) || empty($profissional) || empty($data) || empty($horario)){
+        echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../perfis/perfilcliente.php'</script>";
+    }
+
 
 
 if($semana == 7 && $ano_agendamento >= $ano_atual){
