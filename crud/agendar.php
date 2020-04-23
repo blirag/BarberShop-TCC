@@ -10,9 +10,12 @@ $horario = $_POST['hora'];
 $sql = mysqli_query($conexao, "SELECT tempo FROM tb_servicos WHERE procedimento = '$procedimento'");
 $row = mysqli_fetch_array($sql);
 $tempo = $row['tempo'];
-$horario_final = strtotime($tempo) + strtotime($horario);
+$horario_final = strtotime($horario) + strtotime($tempo);
 $horario_final = date("H:i", strtotime('+15 minutes', $horario_final));
 
+echo $horario_final;
+
+/*
 $sql = "SELECT horaInicio,horaFim, funcionario FROM tb_agendamento WHERE funcionario = '$profissional' AND dataAgendamento = '$data'";
 $result = mysqli_query($conexao, $sql);
 $dados = mysqli_fetch_array($result);
