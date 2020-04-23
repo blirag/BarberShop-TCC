@@ -37,6 +37,9 @@ else{
     else if($ano_agendamento < $ano_atual){
         echo "<script language='javascript' type='text/javascript'> alert('Ano inválido');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
+    else if($horario < '09:00' || $horario > '19:00'){
+        echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, atendemos entre 09:00 da manhã e 19:00 da noite');window.location = '../servicos-agendamento/agendamento.php'</script>";
+    }
     else if($ano_agendamento >= $ano_atual && $mes_agendamento >= $mes_atual && $dia_agendamento >= $dia_atual &&  $horario > $dados['horaFim'] && $horario != $dados['horaInicio'] ){
         
         $idCliente = $_SESSION['cliente'];
