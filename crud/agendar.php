@@ -40,24 +40,27 @@ else{
     else if($horario < '09:00' || $horario > '19:00'){
         echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, atendemos entre 09:00 da manhã e 19:00 da noite');window.location = '../servicos-agendamento/agendamento.php'</script>";
     }
-    else if($ano_agendamento >= $ano_atual && $mes_agendamento >= $mes_atual && $dia_agendamento >= $dia_atual &&  $horario > $dados['horaFim'] && $horario != $dados['horaInicio'] ){
+    else if($dia_agendamento >= $dia_atual){
+        date_default_timezone_set('America/Sao_Paulo');
+        $hora_atual = date('H:i');
         
-        $idCliente = $_SESSION['cliente'];
-        $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento','$profissional', '$horario_final', NULL, NULL, '$idCliente')";
-        
-        if(mysqli_query($conexao, $insert)){
-            echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
+        if($horario <= $hora_atual){
+            echo "<script language='javascript' type='text/javascript'> alert('Impossível agendar, a hora selecionada já passou!');window.location = '../servicos-agendamento/agendamento.php'</script>";
         }
-        else {
-            echo "<script language='javascript' type='text/javascript'> alert('Erro ao agendar, tente novamente!');window.location = '../servicos-agendamento/agendamento.php'</script>";
-        }
-    }
-    else {
-        if($horario == $dados['horaInicio'] or $horario < $dados['horaFim']){
+        else if($horario == $dados['horaInicio'] or $horario < $dados['horaFim']){
             echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, verifique e tente novamente');window.location = '../servicos-agendamento/agendamento.php'</script>";
         }
-        else{
-            echo "<script language='javascript' type='text/javascript'> alert('Data inválida, verifique e tente novamente');window.location = '../servicos-agendamento/agendamento.php'</script>";
+        else if($ano_agendamento >= $ano_atual && $mes_agendamento >= $mes_atual && $dia_agendamento >= $dia_atual &&  $horario > $dados['horaFim'] && $horario != $dados['horaInicio'] ){
+        
+            $idCliente = $_SESSION['cliente'];
+            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento','$profissional', '$horario_final', NULL, NULL, '$idCliente')";
+            
+            if(mysqli_query($conexao, $insert)){
+                echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
+            }
+            else {
+                echo "<script language='javascript' type='text/javascript'> alert('Erro ao agendar, tente novamente!');window.location = '../servicos-agendamento/agendamento.php'</script>";
+            }
         }
     }
 }
