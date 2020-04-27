@@ -40,11 +40,7 @@ else{
             </ul>
         </nav>
     </header>
-    <section>
-        <?php
-        require_once'../fullcalendar/demos/calendario.php';
-        ?>
-    </section>
+    
 
     <section>
         <h3>Histórico de Agendamento</h3>
