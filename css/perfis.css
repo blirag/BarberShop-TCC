@@ -5,7 +5,7 @@ a {text-decoration: none; cursor: pointer; color: #fff;}
 header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.2em; justify-content: space-between; height: 100px; text-transform: uppercase; margin-bottom: 300px;}
 header .name {color: #fff; margin-right: 500px; font-size: 1.5em; width: 500px; display: flex; margin-left: 10px;}
 header nav ul {display: flex; margin-left: -25%;}
-header nav ul a {padding: 0 2px 0 20px; color: #fff; text-align: center;}
+header nav ul a {padding: 0 15px; color: #fff; text-align: center;}
 header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
 
 section {margin-top: 150px; display: flex; flex-direction: column; align-items: center;}

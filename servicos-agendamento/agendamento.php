@@ -28,7 +28,6 @@ if(!isset($_SESSION['cliente'])){
         <nav>
            <ul>
                <li><a href="servicos.php">Serviços</a></li>
-               <li><a href="agendamento.php">Agendamento</a></li>
                <li><a href="../index.php#localizacao">Localização</a></li>
                <li><a href="../index.php#contato">Contato</a></li>
            </ul>
