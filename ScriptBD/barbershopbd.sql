@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 28-Abr-2020 às 18:15
+-- Generation Time: 28-Abr-2020 às 22:22
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barbershopbd`
+-- Database: `barbershopbdteste`
 --
 
 -- --------------------------------------------------------
@@ -46,17 +46,17 @@ CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
   KEY `idServicosFK` (`idServicos`) USING BTREE,
   KEY `idClienteFK` (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_agendamento`
 --
 
 INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`, `valor`, `idCliente`) VALUES
-(14, 3, '2020-04-24', '10:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '10:35:00', 0, 40),
-(15, 3, '2020-04-23', '18:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '18:35:00', 0, 40),
-(16, 3, '2020-04-24', '18:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '18:35:00', 0, 40),
-(17, 3, '2020-04-29', '10:30:00', 'BARBA COMPLETA', 'Marcos', NULL, NULL, '11:15:00', 0, 40);
+(12, 3, '2020-04-16', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 0, 40),
+(13, 3, '2020-04-29', '10:30:00', 'BARBA COMPLETA', 'Marcos', NULL, NULL, '11:15:00', 0, 40),
+(14, 3, '2020-04-30', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 32, 40),
+(15, 3, '2020-04-30', '17:00:00', 'CABELO E BARBA COMPLETO', 'Beatriz Lira', NULL, NULL, '18:15:00', 70, 40);
 
 -- --------------------------------------------------------
 
@@ -158,33 +158,60 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `senha_funcionario` varchar(32) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   KEY `idProprietarioFK` (`idProprietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_funcionario`
 --
 
 INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
-(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', '74be16979710d4c4e7c6647856088456'),
-(12, 3, 'Beatriz Lira', '541528853', 48806709879, '1998-01-18', 11963087264, 2000.99, 'beatrizliragonzaga@gmail.com', '202cb962ac59075b964b07152d234b70');
+(10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70'),
+(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', '74be16979710d4c4e7c6647856088456');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tb_gastos`
+-- Estrutura da tabela `tb_gastosfixos`
 --
 
-DROP TABLE IF EXISTS `tb_gastos`;
-CREATE TABLE IF NOT EXISTS `tb_gastos` (
-  `idGastos` int(11) NOT NULL AUTO_INCREMENT,
-  `idFuncionario` int(11) NOT NULL,
-  `gastosVariaveis` double NOT NULL,
-  `gastosFixos` double NOT NULL,
-  `idProprietario` int(11) NOT NULL,
-  PRIMARY KEY (`idGastos`),
-  KEY `idProprietarioFK` (`idProprietario`) USING BTREE,
-  KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `tb_gastosfixos`;
+CREATE TABLE IF NOT EXISTS `tb_gastosfixos` (
+  `idGastosFixos` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `valor` double NOT NULL,
+  PRIMARY KEY (`idGastosFixos`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_gastosfixos`
+--
+
+INSERT INTO `tb_gastosfixos` (`idGastosFixos`, `tipo`, `valor`) VALUES
+(1, 'Aluguel', 1500),
+(2, 'Água', 300),
+(3, 'Luz', 300),
+(4, 'Internet', 190);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_gastosvariaveis`
+--
+
+DROP TABLE IF EXISTS `tb_gastosvariaveis`;
+CREATE TABLE IF NOT EXISTS `tb_gastosvariaveis` (
+  `idGastosVariaveis` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `valor` double NOT NULL,
+  PRIMARY KEY (`idGastosVariaveis`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_gastosvariaveis`
+--
+
+INSERT INTO `tb_gastosvariaveis` (`idGastosVariaveis`, `tipo`, `valor`) VALUES
+(1, 'Kit Tesoura', 114.99);
 
 -- --------------------------------------------------------
 
@@ -275,13 +302,6 @@ ALTER TABLE `tb_financas`
 --
 ALTER TABLE `tb_funcionario`
   ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
-
---
--- Limitadores para a tabela `tb_gastos`
---
-ALTER TABLE `tb_gastos`
-  ADD CONSTRAINT `idFuncionarioFkGastos` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`),
-  ADD CONSTRAINT `idProprietarioFkGastos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 
 --
 -- Limitadores para a tabela `tb_servicos`

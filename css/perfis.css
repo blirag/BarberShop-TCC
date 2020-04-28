@@ -10,7 +10,7 @@ header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
 
 section {margin-top: 150px; display: flex; flex-direction: column; align-items: center;}
 section h3 {font-size: 1.7rem; margin-bottom: 10px; text-transform: uppercase;}
-section hr {width: 500px; background-color: #101010; margin-bottom: 10px; border: 1px solid #101010}
+section hr {width: 300px; background-color: #101010; margin-bottom: 10px; border: 1px solid #101010}
 section table {font-size: 1.2em; text-transform: uppercase; text-align: center;}
 section table th {text-decoration: underline;}
 section table th, td {padding: 15px 20px;}
@@ -21,16 +21,16 @@ section a:hover {opacity: 0.9; cursor: pointer;}
 section table i:hover {opacity: 0.8; cursor: pointer}
 
 section {display: flex; font-size: 1.3em; margin-top: 150px; flex-direction: column; align-items: center; text-transform: uppercase;}
-section form {border-radius: 10px;}
-section form h1 {font-size: 2em; text-align: center; width: 500px;}
-section form h2 {font-size: 1.5em; text-align: center; width: 500px;}
+.gastos hr {width: 200px}
 section form label {font-size: 0.9em}
-section form input {width: 500px; height: 55px; border-radius: 5px; border: solid 1px #101010}
+section form input {width: 200px; height: 55px; border-radius: 5px; border: solid 1px #101010; text-align: center;}
 section form button {width: 250px; height: 50px; border-radius: 20px; color: #fff; background-color: #000; margin: 0 120px 35px; text-transform: uppercase;}
 ::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
 section form hr {border: solid 1px #000; width: 250px; margin-left: 130px}
 section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
 section form button:hover {opacity: 0.9;}
+.adicionargasto form {text-align: center;}
+.adicionargasto form input {width: 300px;}
 
 footer {width: 100%; height: 300px; background-color: #101010; color: #fff; display: flex; flex-direction: column; align-items: center;}
 footer h2 {font-size: 1.3em; text-transform: uppercase; margin-top: 20px}
