@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 15-Abr-2020 às 18:15
+-- Generation Time: 28-Abr-2020 às 18:15
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -39,20 +39,24 @@ CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   `idFuncionario` int(11) DEFAULT NULL,
   `idServicos` int(11) DEFAULT NULL,
   `horaFim` time NOT NULL,
+  `valor` double NOT NULL,
   `idCliente` int(11) NOT NULL,
   PRIMARY KEY (`idAgendamento`),
   KEY `idProprietarioFK` (`idProprietario`),
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
   KEY `idServicosFK` (`idServicos`) USING BTREE,
   KEY `idClienteFK` (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_agendamento`
 --
 
-INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`, `idCliente`) VALUES
-(12, 3, '2020-04-16', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 40);
+INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`, `valor`, `idCliente`) VALUES
+(14, 3, '2020-04-24', '10:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '10:35:00', 0, 40),
+(15, 3, '2020-04-23', '18:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '18:35:00', 0, 40),
+(16, 3, '2020-04-24', '18:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '18:35:00', 0, 40),
+(17, 3, '2020-04-29', '10:30:00', 'BARBA COMPLETA', 'Marcos', NULL, NULL, '11:15:00', 0, 40);
 
 -- --------------------------------------------------------
 
@@ -154,15 +158,15 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   `senha_funcionario` varchar(32) NOT NULL,
   PRIMARY KEY (`idFuncionario`),
   KEY `idProprietarioFK` (`idProprietario`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_funcionario`
 --
 
 INSERT INTO `tb_funcionario` (`idFuncionario`, `idProprietario`, `nome`, `rg`, `cpf`, `dataNascimento`, `telefone`, `salario`, `email_funcionario`, `senha_funcionario`) VALUES
-(10, 3, 'Beatriz Lira ', '541528853', 48806709879, '1998-01-18', 11988141970, 2000.99, 'beatriz@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', '74be16979710d4c4e7c6647856088456');
+(11, 3, 'Marcos', '152435593', 42206715989, '1980-03-20', 11963087264, 1499.99, 'marcos@gmail.com', '74be16979710d4c4e7c6647856088456'),
+(12, 3, 'Beatriz Lira', '541528853', 48806709879, '1998-01-18', 11963087264, 2000.99, 'beatrizliragonzaga@gmail.com', '202cb962ac59075b964b07152d234b70');
 
 -- --------------------------------------------------------
 

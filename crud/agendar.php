@@ -69,9 +69,12 @@ else{
             echo "<script language='javascript' type='text/javascript'> alert('Horário indisponível, verifique e tente novamente');window.location = '../servicos-agendamento/agendamento.php'</script>";
         }
         else if($ano_agendamento >= $ano_atual && $mes_agendamento >= $mes_atual && $dia_agendamento >= $dia_atual &&  $horario > $dados['horaFim'] && $horario != $dados['horaInicio'] ){
-        
+            $pegaValor = mysqli_query($conexao, "SELECT valor FROM tb_servicos WHERE procedimento = '$procedimento'");
+            $dado = mysqli_fetch_array($pegaValor);
+            $valor = $dado['valor'];
+
             $idCliente = $_SESSION['cliente'];
-            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente) VALUES ('3', '$data', '$horario', '$procedimento','$profissional', '$horario_final', NULL, NULL, '$idCliente')";
+            $insert = "INSERT INTO tb_agendamento (idProprietario, dataAgendamento, horaInicio, procedimento, funcionario, horaFim, idFuncionario, idServicos, idCliente, valor) VALUES ('3', '$data', '$horario', '$procedimento','$profissional', '$horario_final', NULL, NULL, '$idCliente', '$valor')";
             
             if(mysqli_query($conexao, $insert)){
                 echo "<script language='javascript' type='text/javascript'> alert('Agendado com sucesso!');window.location = '../perfis/perfilcliente.php'</script>";
