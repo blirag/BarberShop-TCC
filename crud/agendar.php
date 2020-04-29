@@ -53,7 +53,7 @@ else if($semana == 7 && $ano_agendamento >= $ano_atual && $mes_agendamento >= $m
     echo "<script language='javascript' type='text/javascript'> alert('Não abrimos de domingo, tente outro dia da semana!');window.location = '../servicos-agendamento/agendamento.php'</script>";
 }
 else{
-    if($mes_agendamento >= $mes_atual and $ano_agendamento >= $ano_atual and $horario > $dados['horaFim'] and $horario != $dados['horaInicio']){
+    if($mes_agendamento >= $mes_atual and $ano_agendamento >= $ano_atual and $horario > $dados['horaFim'] and $horario != $dados['horaInicio'] and $semana != 7){
         $pegaValor = mysqli_query($conexao, "SELECT valor FROM tb_servicos WHERE procedimento = '$procedimento'");
         $dado = mysqli_fetch_array($pegaValor);
         $valor = $dado['valor'];
