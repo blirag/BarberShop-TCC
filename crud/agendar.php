@@ -20,6 +20,9 @@ if($result == true){
     $dados = mysqli_fetch_array($result);
 }
 
+date_default_timezone_set('America/Sao_Paulo');
+$hora_atual = date('H:i');
+
 $semana = date("N", strtotime($data));
 
 
@@ -31,8 +34,7 @@ $dia_atual = idate('d');
 $mes_atual = idate('m');
 $ano_atual = idate('Y');
 
-date_default_timezone_set('America/Sao_Paulo');
-$hora_atual = date('H:i');
+
 
 if(empty($procedimento) || empty($profissional) || empty($data) || empty($horario)){
     echo "<script language='javascript' type='text/javascript'> alert('Todos os campos precisam ser preenchidos!');window.location = '../servicos-agendamento/agendamento.php'</script>";
