@@ -66,7 +66,7 @@ else{
                     while($dados = mysqli_fetch_array($result)){
             ?>
                 <tr>
-                    <td><i class="fas fa-spinner"></i></td>
+                    <td><a href="../crud/adicionarlucro.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-spinner"></i></a></td>
                     <td><?php echo $dados['procedimento'];?></td>
                     <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
                     <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>

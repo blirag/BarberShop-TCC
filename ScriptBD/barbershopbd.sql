@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Abr-2020 às 00:09
+-- Generation Time: 30-Abr-2020 às 19:17
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barbershopbd`
+-- Database: `barbershopbdteste`
 --
 
 -- --------------------------------------------------------
@@ -46,16 +46,17 @@ CREATE TABLE IF NOT EXISTS `tb_agendamento` (
   KEY `idFuncionarioFK` (`idFuncionario`) USING BTREE,
   KEY `idServicosFK` (`idServicos`) USING BTREE,
   KEY `idClienteFK` (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tb_agendamento`
 --
 
 INSERT INTO `tb_agendamento` (`idAgendamento`, `idProprietario`, `dataAgendamento`, `horaInicio`, `procedimento`, `funcionario`, `idFuncionario`, `idServicos`, `horaFim`, `valor`, `idCliente`) VALUES
+(12, 3, '2020-04-16', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 0, 40),
+(13, 3, '2020-04-29', '10:30:00', 'BARBA COMPLETA', 'Marcos', NULL, NULL, '11:15:00', 0, 40),
 (14, 3, '2020-04-30', '10:30:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:05:00', 32, 40),
-(15, 3, '2020-04-30', '17:00:00', 'CABELO E BARBA COMPLETO', 'Beatriz Lira', NULL, NULL, '18:15:00', 70, 40),
-(17, 3, '2020-05-11', '11:00:00', 'CABELO SIMPLES', 'Beatriz Lira', NULL, NULL, '11:35:00', 32, 40);
+(15, 3, '2020-04-30', '17:00:00', 'CABELO E BARBA COMPLETO', 'Beatriz Lira', NULL, NULL, '18:15:00', 70, 40);
 
 -- --------------------------------------------------------
 
@@ -124,18 +125,22 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
 
 DROP TABLE IF EXISTS `tb_financas`;
 CREATE TABLE IF NOT EXISTS `tb_financas` (
-  `idFinancas` int(11) NOT NULL AUTO_INCREMENT,
+  `idFinancas` double NOT NULL AUTO_INCREMENT,
   `salarios` double NOT NULL,
-  `lucros` double NOT NULL,
-  `gastos` double NOT NULL,
-  `idGastos` int(11) NOT NULL,
-  `idAgendamento` int(11) NOT NULL,
-  `idProprietario` int(11) NOT NULL,
-  PRIMARY KEY (`idFinancas`),
-  KEY `idAgendamentoFK` (`idAgendamento`),
-  KEY `idProprietarioFK` (`idProprietario`),
-  KEY `idGastosFK` (`idGastos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `gastosfixos` double NOT NULL,
+  `gastosvariaveis` double NOT NULL,
+  `lucroservicos` double NOT NULL,
+  `lucrototal` double NOT NULL,
+  `mes` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idFinancas`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_financas`
+--
+
+INSERT INTO `tb_financas` (`idFinancas`, `salarios`, `gastosfixos`, `gastosvariaveis`, `lucroservicos`, `lucrototal`, `mes`) VALUES
+(5, 3500.98, 2290, 114.99, 102, -5803.97, '4');
 
 -- --------------------------------------------------------
 
@@ -215,6 +220,27 @@ INSERT INTO `tb_gastosvariaveis` (`idGastosVariaveis`, `tipo`, `valor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_lucros`
+--
+
+DROP TABLE IF EXISTS `tb_lucros`;
+CREATE TABLE IF NOT EXISTS `tb_lucros` (
+  `idLucros` int(11) NOT NULL AUTO_INCREMENT,
+  `valor` double NOT NULL,
+  PRIMARY KEY (`idLucros`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_lucros`
+--
+
+INSERT INTO `tb_lucros` (`idLucros`, `valor`) VALUES
+(6, 70),
+(5, 32);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_proprietario`
 --
 
@@ -287,6 +313,18 @@ ALTER TABLE `tb_cliente`
 --
 ALTER TABLE `tb_endereco`
   ADD CONSTRAINT `idFuncionarioFkEnderecco` FOREIGN KEY (`idFuncionario`) REFERENCES `tb_funcionario` (`idFuncionario`);
+
+--
+-- Limitadores para a tabela `tb_funcionario`
+--
+ALTER TABLE `tb_funcionario`
+  ADD CONSTRAINT `idProprietarioFkFuncionario` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
+
+--
+-- Limitadores para a tabela `tb_servicos`
+--
+ALTER TABLE `tb_servicos`
+  ADD CONSTRAINT `idProprietarioFkServicos` FOREIGN KEY (`idProprietario`) REFERENCES `tb_proprietario` (`idProprietario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

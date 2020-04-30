@@ -42,6 +42,12 @@ else{
     </header>
 
     <section>
+        <h3>Finanças</h3>
+        <hr><br>
+        <a href="../crud/create-financas.php" name="btn-financas">Atualizar Finanças</a>
+    </section>
+
+    <section>
         <h3>Total em Gastos</h3>
         <hr><br>
         <table>
