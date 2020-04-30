@@ -36,6 +36,7 @@ else{
             <ul>
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="#funcionario">Funcionários</a></li>
+                <li><a href="../financas/painelfinancas.php">Finanças</a></li>
                 <li><a href="../crud/logout.php">Sair</a></li>
             </ul>
         </nav>
