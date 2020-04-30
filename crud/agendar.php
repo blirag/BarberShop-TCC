@@ -19,6 +19,7 @@ $result = mysqli_query($conexao, $sql);
 if($result == true){
     $dados = mysqli_fetch_array($result);
 }
+
 date_default_timezone_set('America/Sao_Paulo');
 $hora_atual = date('H:i');
 
