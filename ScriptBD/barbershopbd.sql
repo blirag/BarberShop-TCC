@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 30-Abr-2020 às 19:17
+-- Generation Time: 30-Abr-2020 às 19:38
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barbershopbdteste`
+-- Database: `barbershopbd`
 --
 
 -- --------------------------------------------------------
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `tb_financas` (
 --
 
 INSERT INTO `tb_financas` (`idFinancas`, `salarios`, `gastosfixos`, `gastosvariaveis`, `lucroservicos`, `lucrototal`, `mes`) VALUES
-(5, 3500.98, 2290, 114.99, 102, -5803.97, '4');
+(5, 3500.98, 2290, 114.99, 102, 5803.97, '4');
 
 -- --------------------------------------------------------
 

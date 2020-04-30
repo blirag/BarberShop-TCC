@@ -44,6 +44,7 @@ else{
     <section>
         <h3>Finanças</h3>
         <hr><br>
+        <?php require_once 'grafico.php';?>
         <a href="../crud/create-financas.php" name="btn-financas">Atualizar Finanças</a>
     </section>
 
