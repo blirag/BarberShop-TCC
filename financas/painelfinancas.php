@@ -49,6 +49,34 @@ else{
     </section>
 
     <section>
+    <h3>Lucros</h3>
+    <hr><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Lucro com Serviços</th>
+                <th>Lucro Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+            $sql = mysqli_query($conexao, "SELECT SUM(valor) FROM tb_agendamento");
+            $lucroservico = mysqli_fetch_array($sql);
+
+            date_default_timezone_set('America/Sao_Paulo');
+            $mes = idate('m');
+            $sql = mysqli_query($conexao, "SELECT lucrototal FROM tb_financas WHERE mes = '$mes'");
+            $lucrototal = mysqli_fetch_array($sql);
+        ?>
+            <tr>
+                <td>R$ <?php echo $lucroservico[0];?></td>
+                <td>R$ <?php echo $lucrototal[0];?></td>
+            </tr>
+        </tbody>
+    </table>
+    </section>
+
+    <section>
         <h3>Total em Gastos</h3>
         <hr><br>
         <table>
