@@ -25,9 +25,16 @@
     date_default_timezone_set('America/Sao_Paulo');
     $mes = idate('m');
     
-    $insert = "INSERT INTO tb_financas (salarios, gastosfixos, gastosvariaveis, lucroservicos, lucrototal, mes) VALUES ('$salarios', '$gastosfixos', '$gastosvar', '$lucro', '$totallucro', '$mes')";
+    $delete = "DELETE FROM tb_financas WHERE mes = '$mes'";
+    
+    if(mysqli_query($conexao, $delete)){
+      $insert = "INSERT INTO tb_financas (salarios, gastosfixos, gastosvariaveis, lucroservicos, lucrototal, mes) VALUES ('$salarios', '$gastosfixos', '$gastosvar', '$lucro', '$totallucro', '$mes')";
 
-    if(mysqli_query($conexao, $insert)){
+      if(mysqli_query($conexao, $insert)){
         echo "<script language='javascript' type='text/javascript'> alert('Finanças atualizadas!'); window.location = '../financas/painelfinancas.php';</script>";
-    }
+      }
+      else{
+        echo "<script language='javascript' type='text/javascript'> alert('Erro ao atualizar, tente novamente...'); window.location = '../financas/painelfinancas.php';</script>";
+      }
+    }   
 ?>

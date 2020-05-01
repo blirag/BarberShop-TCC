@@ -11,7 +11,7 @@
 
             date_default_timezone_set('America/Sao_Paulo');
             $mes_atual = idate('m'); 
-
+            
             $sql = mysqli_query($conexao, "SELECT * FROM tb_financas WHERE mes = '$mes_atual'");
           
             while($dados = mysqli_fetch_array($sql)){
