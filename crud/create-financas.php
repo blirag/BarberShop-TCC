@@ -22,6 +22,7 @@
     $totalgastos = $salarios + $gastosfixos + $gastosvar;
     $totallucro = $lucro - $totalgastos;
 
+    date_default_timezone_set('America/Sao_Paulo');
     $mes = idate('m');
     
     $insert = "INSERT INTO tb_financas (salarios, gastosfixos, gastosvariaveis, lucroservicos, lucrototal, mes) VALUES ('$salarios', '$gastosfixos', '$gastosvar', '$lucro', '$totallucro', '$mes')";

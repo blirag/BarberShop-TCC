@@ -141,7 +141,7 @@ else{
                     <tr>
                         <td><input type="text" name="tipo" value="<?php echo $dados['tipo']; ?>" readonly></td>
                         <td><input type="text" name="valor" value="R$ <?php echo $dados['valor']; ?>" readonly></td>
-                        <td><i class="fas fa-trash"></i></td>
+                        <td><a href="../crud/delete-gasto.php?id=<?php echo $dados['idGastosVariaveis'];?>"><i class="fas fa-trash"></i></a></td>
                     </tr>
                     <?php
                         }
