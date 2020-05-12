@@ -8,14 +8,23 @@ if(isset($_GET['id'])){
     $dados = mysqli_fetch_array($sql);
     $valor = $dados['valor'];
 
-    $insert = "INSERT INTO tb_lucros (valor) VALUES ('$valor')";
+    $insertLucro = "INSERT INTO tb_lucros (valor) VALUES ('$valor')";
+    $upSituacao = "UPDATE `tb_agendamento` SET `situacao` = '1' WHERE `tb_agendamento`.`idAgendamento` = '$id';";
 
-    if(mysqli_query($conexao, $insert)){
+
+    if(mysqli_query($conexao, $insertLucro)){
+
+        mysqli_query($conexao, $upSituacao);
+
         if($_SESSION['funcionario']){
             header ('location: ../perfis/perfilfuncionario');
         }
         else if($_SESSION['proprietario']){
             header ('location: ../perfis/perfilproprietario');
+        }
+        else{
+
+             echo "<script language='javascript' type='text/javascript'> alert('Erro de sessão, tente novamente mais tarde!');window.location = '../perfis/perfilfuncionario.php'</script>";
         }
     }
     else{

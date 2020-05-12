@@ -44,7 +44,7 @@ else{
     
 
     <section>
-        <h3>Histórico de Agendamento</h3>
+        <h3>Agendamentos</h3>
         <hr><br>
         <table>
             <thead>
@@ -59,14 +59,32 @@ else{
             </thead>
             <tbody>
             <?php
-                $sql = "SELECT idAgendamento, procedimento, dataAgendamento, horaInicio, funcionario FROM tb_agendamento";
+                $sql = "SELECT idAgendamento, procedimento, dataAgendamento, horaInicio, funcionario, situacao FROM tb_agendamento";
                 $result = mysqli_query($conexao, $sql);
 
                 if(mysqli_num_rows($result)){
                     while($dados = mysqli_fetch_array($result)){
             ?>
                 <tr>
-                    <td><a href="../crud/adicionarlucro.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-spinner"></i></a></td>
+                    <?php
+                        if ($dados['situacao'] == "1") {
+                            $ext = ".jpg";
+                            $img = "../img/setaPreta";
+                        }
+                        else{
+                            $ext = ".gif";
+                            $img = "../img/spinner";
+                        }
+
+
+                    ?>
+
+                    <td><a href="../crud/adicionarlucro.php?id=<?php echo $dados['idAgendamento'];?>"><img src=
+                        "<?php echo $img.$ext; ?>"></a></td>
+
+
+
+
                     <td><?php echo $dados['procedimento'];?></td>
                     <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
                     <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
