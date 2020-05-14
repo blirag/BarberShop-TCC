@@ -28,6 +28,7 @@ else{
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/perfis.css">
+    <style>img{height: 45px};</style>
 </head>
 <body>
     <header>
@@ -68,8 +69,8 @@ else{
                         <tr>
                             <?php
                             if ($dados['situacao'] == "1") {
-                                $ext = ".jpg";
-                                $img = "../img/setaPreta";
+                                $ext = ".svg";
+                                $img = "../img/check-circle-solid";
                             }
                             else{
                                 $ext = ".gif";
