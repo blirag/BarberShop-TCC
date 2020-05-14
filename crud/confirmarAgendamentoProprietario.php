@@ -4,11 +4,18 @@ require_once 'conexaoDB.php';
 
 if(isset($_GET['id'])){
   $id = $_GET['id'];
-  $sql = mysqli_query($conexao, "SELECT valor, situacao FROM tb_agendamento WHERE idAgendamento = '$id'");
+  $sql = mysqli_query($conexao, "SELECT valor, situacao, dataAgendamento FROM tb_agendamento WHERE idAgendamento = '$id'");
   $dados = mysqli_fetch_array($sql);
   $valor = $dados['valor'];
+  $mes_agendamento = idate("m", strtotime($dados['dataAgendamento']));
+  
+  date_default_timezone_set('America/Sao_Paulo');
+  $mes_atual = idate('m');
 
-  $insertLucro = "INSERT INTO tb_lucros (valor) VALUES ('$valor')";
+  if($mes_agendamento == $mes_atual){
+    $insertLucro = "INSERT INTO tb_lucros (valor) VALUES ('$valor')";
+  }
+  
   $upSituacao = "UPDATE `tb_agendamento` SET `situacao` = '1' WHERE `tb_agendamento`.`idAgendamento` = '$id';";
 
   if($dados['situacao'] == 0){
