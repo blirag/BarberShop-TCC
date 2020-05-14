@@ -44,7 +44,21 @@ else{
     <section>
         <h3>Finanças</h3>
         <hr><br>
-        <?php require_once 'grafico.php';?>
+        <?php 
+            date_default_timezone_set('America/Sao_Paulo');
+            $mes = idate('m');
+            $sql = mysqli_query($conexao, "SELECT lucrototal FROM tb_financas WHERE mes = '$mes'");
+            $result = mysqli_fetch_array($sql);
+
+            if($result['lucrototal'] < 0){
+        ?>
+            <h4>NÃO HÁ GRÁFICO DESSE MÊS, POIS, SEU SALDO FOI NEGATIVO: <?php echo $result['lucrototal']; ?></h4>
+        <?php
+            }
+            else{
+                require_once 'grafico.php';
+            }
+        ?>
         <a href="../crud/create-financas.php" name="btn-financas">Atualizar Finanças</a>
     </section>
 

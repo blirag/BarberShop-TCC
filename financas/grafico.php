@@ -36,12 +36,12 @@
           title: 'Porcentagens Totais de Lucros e Gastos'
         };
 
-        var chart = new google.visualization.PieChart (document.getElementById ('piechart'));
+        var chart = new google.visualization.PieChart (document.getElementById ('donutchart'));
         chart.draw (data, options);
       }
     </script>
   </head>
   <body>
-    <div id = "piechart" style = " width : 900px ; height : 500px ; " > </div>          
+    <div id = "donutchart" style = " width : 900px ; height : 500px ; " > </div>          
   </body>
 </html>
