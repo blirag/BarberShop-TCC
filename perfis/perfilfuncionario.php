@@ -54,30 +54,46 @@ else {
                 </tr>
             </thead>
             <tbody>
-            <?php
-                $select = "SELECT idAgendamento, procedimento, dataAgendamento, horaInicio FROM tb_agendamento WHERE funcionario = '$nome'";
+                <?php
+                $select = "SELECT idAgendamento, procedimento, dataAgendamento, horaInicio, situacao FROM tb_agendamento WHERE funcionario = '$nome'";
                 $result = mysqli_query($conexao, $select);
 
                 if(mysqli_num_rows($result)){
                     while($dados = mysqli_fetch_array($result)){
-            ?>
-                <tr>
-                    <td><a href="../crud/adicionarlucro.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-spinner"></i></a></td>
-                    <td><?php echo $dados['procedimento'];?></td>
-                    <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
-                    <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
-                    <td><a href="../crud/delete-agendamento.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-trash"></i></a></td>
-                </tr>
-                <?php }
-                    }
-                    else { ?>
+                        ?>
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                           <?php
+                           if ($dados['situacao'] == "1") {
+                            $ext = ".jpg";
+                            $img = "../img/setaPreta";
+                        }
+                        else{
+                            $ext = ".gif";
+                            $img = "../img/spinner";
+                        }
+
+
+                        ?>
+
+
+                        <td><a href="../crud/confirmarAgendamentoFuncionario.php?id=<?php echo $dados['idAgendamento'];?>"><img src=
+                            "<?php echo $img.$ext; ?>"></a></td>
+
+                            <td><?php echo $dados['procedimento'];?></td>
+                            <td><?php echo date("d/m/Y", strtotime($dados['dataAgendamento']));?></td>
+                            <td><?php echo date("H:i", strtotime($dados['horaInicio']));?></td>
+                            <td><a href="../crud/delete-agendamento.php?id=<?php echo $dados['idAgendamento'];?>"><i class="fas fa-trash"></i></a></td>
                         </tr>
+                    <?php }
+                }
+                else { ?>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
                 <?php   } 
                 ?>
             </tbody>
