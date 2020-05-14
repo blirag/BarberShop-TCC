@@ -133,7 +133,7 @@ else{
                     <tr>
                         <td><input type="text" name="tipo" value="<?php echo $dados['tipo']; ?>"></td>
                         <td><input type="text" name="valor" value="R$ <?php echo $dados['valor']; ?>"></td>
-                        <td><i class="fas fa-redo-alt"></i></td>
+                        <td><a href="../crud/editargasto.php?id=<?php echo $dados['idGastosFixos'];?>"><i class="fas fa-edit"></i></a></td>
                     </tr>
                     <?php
                        }
