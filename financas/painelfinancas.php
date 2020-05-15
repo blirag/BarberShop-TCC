@@ -60,6 +60,7 @@ else{
             }
         ?>
         <a href="../crud/create-financas.php" name="btn-financas">Atualizar Finanças</a>
+        <a href="historico.php" name="btn-historico">Histórico Finanças</a>
     </section>
 
     <section>
