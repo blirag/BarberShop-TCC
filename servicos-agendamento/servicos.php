@@ -118,7 +118,7 @@ $dados = mysqli_fetch_array($result);
             <h4>Cabelo e barba simples</h4>
             <hr>
             <h5>R$ 47,00</h5>
-            <p>Cabelo simples + barba simples <br>
+            <p>Cabelo simples + barba simples <br><br>
                 <i class="fas fa-stopwatch"></i> 40 minutos
             </p>
             <a href="agendamento.php" class="btn-agendar">Agendar</a>
