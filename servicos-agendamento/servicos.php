@@ -13,7 +13,7 @@ $dados = mysqli_fetch_array($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços - Barber Shop</title>
+    <title>Serviços - Barbershop</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
     <script 
