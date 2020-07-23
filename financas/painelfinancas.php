@@ -210,8 +210,8 @@ else{
         <footer>
             <h2 class="title">Atendimento</h2>
             <ul class="infos">
-                <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
-                <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
+                <li><i class="far fa-clock"></i> Ter à sex das 09h00 às 20h00 </li>
+                <li><i class="far fa-clock"></i>  Sáb das 09h00 às 19h00 </li>
             </ul>
             
             <h2 class="title">Contato</h2>

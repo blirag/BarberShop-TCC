@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,77 +9,87 @@
     <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
     <title>Cadastrar Funcionário</title>
 </head>
+
 <body>
     <header>
         <a href="../index.php"><img src="../img/banner.png" alt="Barber Shop"></a>
         <nav>
-         <ul>
-             <a href="../servicos-agendamento/servicos.html"><li>Serviços</li></a>
-             <a href="../servicos-agendamento/agendamento.html"><li>Agendamento</li></a>
-             <a href="../index.php"><li>Contato</li></a>
-             <a href="../index.php"><li>Sobre</li></a>
-         </ul>
-     </nav>
+            <ul>
+                <a href="../servicos-agendamento/servicos.html">
+                    <li>Serviços</li>
+                </a>
+                <a href="../servicos-agendamento/agendamento.html">
+                    <li>Agendamento</li>
+                </a>
+                <a href="../index.php">
+                    <li>Contato</li>
+                </a>
+                <a href="../index.php">
+                    <li>Sobre</li>
+                </a>
+            </ul>
+        </nav>
 
-     <button class="btn-menu">
-        <i class="fas fa-angle-down"></i> 
-    </button>
-    <section class="menu">
-        <a class="btn-close"> <i class="fa fa-times"></i></a>
-        <ul>
-            <li><a href="../servicos-agendamento/servicos.php"> Serviços </a></li>
-            <li><a href="../servicos-agendamento/agendamento.php"> Agendamento </a></li>
-            <li><a href="../index.php"> Contato </i></a></li>
-            <li><a href="../index.php"> Sobre </a></li>
-            <li><a href="cadastro.html"> Cadastro </a></li>
-            <li><a href="login.html"> Login </a></li>
-        </ul>
+        <button class="btn-menu">
+            <i class="fas fa-angle-down"></i>
+        </button>
+        <section class="menu">
+            <a class="btn-close"> <i class="fa fa-times"></i></a>
+            <ul>
+                <li><a href="../servicos-agendamento/servicos.php"> Serviços </a></li>
+                <li><a href="../servicos-agendamento/agendamento.php"> Agendamento </a></li>
+                <li><a href="../index.php"> Contato </i></a></li>
+                <li><a href="../index.php"> Sobre </a></li>
+                <li><a href="cadastro.html"> Cadastro </a></li>
+                <li><a href="login.html"> Login </a></li>
+            </ul>
+        </section>
+    </header>
+    <section>
+        <form method="POST" action="../crud/create-funcionario.php">
+            <h2>Cadastrar Funcionário</h2>
+            <hr style="width: 350px; margin-left: 70px"><br>
+            <label for="nome">Nome</label><br>
+            <input type="text" name="nome" placeholder="Nome e Sobrenome"><br><br>
+            <label for="datanasc">Data de Nascimento</label><br>
+            <input type="date" name="datanasc"><br><br>
+            <label for="rg">RG</label><br>
+            <input type="text" name="rg" placeholder="000.000.000-0"><br><br>
+            <label for="cpf">Cpf</label><br>
+            <input type="text" name="cpf" placeholder="000.000.000-00"><br><br>
+            <label for="telefone">Telefone</label><br>
+            <input type="text" name="telefone" placeholder=" (00) 00000-0000"><br><br>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" placeholder=" seuemail@exemplo.com"><br><br>
+            <label for="senha">Senha</label><br>
+            <input type="password" name="senha" placeholder=" ********"><br><br>
+            <label for="salario">Salário</label><br>
+            <input type="text" name="salario" placeholder="R$"><br><br>
+            <button type="submit">Cadastrar</button>
+        </form>
     </section>
-</header>
-<section>
- <form method="POST" action="../crud/create-funcionario.php">
-    <h2>Cadastrar Funcionário</h2>
-    <hr style="width: 350px; margin-left: 70px"><br>
-    <label for="nome">Nome</label><br>
-    <input type="text" name="nome" placeholder="Nome e Sobrenome"><br><br>
-    <label for="datanasc">Data de Nascimento</label><br>
-    <input type="date" name="datanasc"><br><br>
-    <label for="rg">RG</label><br>
-    <input type="text" name="rg" placeholder="000.000.000-0"><br><br>
-    <label for="cpf">Cpf</label><br>
-    <input type="text" name="cpf" placeholder="000.000.000-00"><br><br>
-    <label for="telefone">Telefone</label><br>
-    <input type="text" name="telefone" placeholder=" (00) 00000-0000"><br><br>
-    <label for="email">Email</label><br>
-    <input type="email" name="email" placeholder=" seuemail@exemplo.com"><br><br>
-    <label for="senha">Senha</label><br>
-    <input type="password" name="senha" placeholder=" ********"><br><br>
-    <label for="salario">Salário</label><br>
-    <input type="text" name="salario" placeholder="R$"><br><br>
-    <button type="submit">Cadastrar</button>
-</form>
-</section>
 
-<footer>
-    <h2 class="title">Atendimento</h2>
-    <ul class="infos">
-        <li><i class="far fa-clock"></i> Ter à sex das 10h00 às 20h00 </li>
-        <li><i class="far fa-clock"></i>  Sáb das 10h00 às 19h00 </li>
-    </ul>
+    <footer>
+        <h2 class="title">Atendimento</h2>
+        <ul class="infos">
+            <li><i class="far fa-clock"></i> Ter à sex das 09h00 às 20h00 </li>
+            <li><i class="far fa-clock"></i> Sáb das 09h00 às 19h00 </li>
+        </ul>
 
-    <h2 class="title">Contato</h2>
-    <ul class="infos">
-        <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
-        <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
-    </ul>
+        <h2 class="title">Contato</h2>
+        <ul class="infos">
+            <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
+            <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
+        </ul>
 
-    <p>© Barber Shop 2020 | Todos os direitos reservados</p>
-</footer>
+        <p>© Barber Shop 2020 | Todos os direitos reservados</p>
+    </footer>
 
-<script>
-    // função para o menu
-    $(".btn-menu").click(function (){$(".menu").show()});
-    $(".btn-close").click(function(){$(".menu").hide()});
-</script>
+    <script>
+        // função para o menu
+        $(".btn-menu").click(function () { $(".menu").show() });
+        $(".btn-close").click(function () { $(".menu").hide() });
+    </script>
 </body>
+
 </html>
