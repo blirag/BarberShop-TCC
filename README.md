@@ -1,14 +1,12 @@
-# BarberShop-TCC
-
 <div align="center">
-
+# Barbershop-TCC
 [Projeto |](https://google.com) 
-[Tecnologias |](https://google.com) 
+[Tecnologias |]({#tecnologias}) 
 [Como contribuir |](https://google.com)    
 [Licença](https://google.com)
 </div>
 
-## 💻 Tecnologias
+## 💻 Tecnologias {#tecnologias}
 Para desenvolver esse projeto foram utilizadas as seguintes tecnologias
 * HTML5
 * CSS3
@@ -17,7 +15,7 @@ Para desenvolver esse projeto foram utilizadas as seguintes tecnologias
 * Google Charts
 
 ## 📱 Projeto
-Esse projeto foi construído com o intuito de ajudar barbearias, por meio de agendamentos e de um controle financeiro
+Esse projeto foi construído para o Trabalho de Conclusão de Curso (TCC) do curso Técnico em Desenvolvimento de Sistemas pela Etec Heliópolis, o intuito é ajudar barbearias por meio de um sistema para agendamentos e para controle financeiro
 
 ## 🔨 Como contribuir
 * Faça um fork desse repositório;
