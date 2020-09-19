@@ -1,12 +1,6 @@
-<div align="center">
-# Barbershop-TCC
-[Projeto |](https://google.com) 
-[Tecnologias |]({#tecnologias}) 
-[Como contribuir |](https://google.com)    
-[Licença](https://google.com)
-</div>
+# Barbershop - TCC
 
-## 💻 Tecnologias {#tecnologias}
+## 💻 Tecnologias
 Para desenvolver esse projeto foram utilizadas as seguintes tecnologias
 * HTML5
 * CSS3
