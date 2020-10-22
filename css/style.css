@@ -1,0 +1,87 @@
+* {margin: 0; padding: 0; font-size: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+nav, ul {list-style: none;}
+a {text-decoration: none; cursor: pointer}
+
+/* HEADER E MENU RESPONSIVO */
+header button, section {display: none}
+.menu {z-index: 1; width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9); top: 0; left: 0}
+.btn-close {font-size: 1.5em; color: #fff; float: right; cursor: pointer; margin: 2% 3% 0 0}
+.menu ul {width: 100%; float: left; text-align: center}
+.menu li {padding: 1.5%}
+.menu li a {font-size: 2em; color: #fff; padding: 1.5% 3%}
+.menu li a:hover {border: 1px solid #fff}
+/* HEADER E MENU LARGE */
+header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.4em; justify-content: space-between;}
+header a img {height: 200px; width: 750px}
+header nav ul {display: flex; margin-left: -5%;}
+header nav ul a {padding: 0 10px; color: #fff; text-align: center;}
+header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
+header a i {margin-right: 12px; font-size: 1.2em; color: #fff}
+header a i:hover {color: #000; background-color: #fff; cursor: pointer;}
+/* AJUSTANDO A RESPONSIVIDADE */
+@media (max-width: 1000px) {
+    header {flex-direction: column; font-size: 1.2em; height: 250px;}
+    header a img {width: 700px; margin-left: 13%;}
+    header nav {display: none}
+    header #login {display: none}
+    header button {display: block; width: 600px; text-align: center; color: #fff; border-radius: 20px; cursor: pointer; border: 2px solid #fff; background-color: #000;}
+    header button i {font-size: 1.8em;}
+}
+
+main {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010; margin-top: 150px;}
+main h3 {font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;}
+main p { max-width: 800px; margin-bottom: 35px; text-align: center; font-size: 1.2em;}
+main hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+main .grid-sobrenos {width: 100%; display: flex; flex-wrap: nowrap;}
+main .grid-sobrenos li {height: 600px; width: 400px; padding: 20px; border-radius: 4px; background-clip: content-box; background-size: cover; background-position: center; flex-basis: 40%;}
+@media (max-width: 700px) {
+    main h3 {margin-top: 25px;}
+    main .grid-sobrenos li.large {display: none;}
+    main .grid-sobrenos li.first {flex-basis: 100%;}
+}
+
+.sobre-agendamento {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010; margin-top: -70px;}
+.sobre-agendamento h3 {font-size: 2rem; margin-bottom: 35px; text-transform: uppercase;}
+.sobre-agendamento p {max-width: 800px; margin-bottom: 20px; text-align: center; font-size: 1.2em;}
+.sobre-agendamento hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+.sobre-agendamento .btn-agendar {color: #fff; background-color: #101010; padding: 20px 50px; text-transform: uppercase; border-radius: 4px; margin-bottom: 35px;}
+.sobre-agendamento .btn-agendar:hover {opacity: 0.9;}
+.sobre-agendamento .grid {width: 100%; display: flex; flex-wrap: wrap;}
+.sobre-agendamento .grid li {height: 350px; padding: 20px; border-radius: 4px; background-clip: content-box; background-size: cover; background-position: center;}
+.sobre-agendamento .grid li.small {flex-basis: 40%;}
+.sobre-agendamento .grid li.large {flex-basis: 60%;}
+@media (max-width: 700px) {
+    .sobre-agendamento h3 {font-size: 1.7em;}
+    .sobre-agendamento .grid li.small, .sobre-agendamento .grid li.large {flex-basis: 100%;}
+}
+
+.onde-estamos {display: flex; flex-direction: column; align-items:center; padding: 100px 50px; color: #101010; margin-top: -100px;}
+.onde-estamos h3 {font-size: 2em; margin-bottom: 20px; text-transform: uppercase;}
+.onde-estamos p {max-width: 800px; margin-bottom: 20px; text-align: center; font-size: 1.2em}
+.onde-estamos hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+.onde-estamos iframe {width: 80%; display: flex;}
+@media (max-width: 790px) {
+    .onde-estamos iframe {width: 100%;}
+}
+
+.contato {display: flex; flex-direction: column; align-items: center; padding: 100px 50px; color: #101010; margin-top: -90px;}
+.contato h3 {font-size: 2rem; margin-bottom: 20px; text-transform: uppercase;}
+.contato p {max-width: 800px; margin-bottom: 20px; text-align: center; font-size: 1.2em;}
+.contato hr {width: 300px; background-color: #101010; margin-bottom: 30px; border: 1px solid #101010}
+.contato .buttons {display: flex; flex-wrap: wrap;}
+.contato .buttons li {height: 80px; width: 250px; padding: 25px; border-radius: 15px; flex-basis: 50%; background-color: #101010; text-align: center; margin: 0 0 10px;}
+.contato .buttons li a {color: #fff; font-size: 1.5em;}
+.contato .buttons li:hover {opacity: 0.8; cursor: pointer;}
+@media (max-width: 875px) {
+    .contato .buttons li {flex-basis: 100%}
+}
+
+#btntop {width: 50px; height: 50px; display: block; font-size: 2em; position: fixed; bottom: 5px; right: 20px; color: #fff; background-color: rgba(51, 51, 51, 0.356); border-radius: 15px; text-align: center; padding: 10px 5px;}
+#btntop:hover {background-color: #000; cursor: pointer;}
+
+footer {width: 100%; height: 300px; background-color: #101010; color: #fff; display: flex; flex-direction: column; align-items: center;}
+footer h2 {font-size: 1.3em; text-transform: uppercase; margin-top: 20px}
+footer ul {font-size: 1em; text-align: center;}
+footer ul li {margin-top: 10px;}
+footer p {margin-top: 70px}
+

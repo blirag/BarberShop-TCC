@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/cadastrologin.css">
+  <script src="https://kit.fontawesome.com/4da5630a36.js" crossorigin="anonymous"></script>
+  <title>Cadastro - Barbershop</title>
+</head>
+
+<body>
+  <header>
+    <a href="../index.php"><img src="../img/banner.png" alt="Barber Shop"></a>
+    <nav>
+      <ul>
+        <a href="../servicos-agendamento/servicos.html">
+          <li>Serviços</li>
+        </a>
+        <a href="../servicos-agendamento/agendamento.html">
+          <li>Agendamento</li>
+        </a>
+        <a href="../index.php">
+          <li>Contato</li>
+        </a>
+        <a href="../index.php">
+          <li>Sobre</li>
+        </a>
+      </ul>
+    </nav>
+
+    <button class="btn-menu">
+      <i class="fas fa-angle-down"></i>
+    </button>
+    <section class="menu">
+      <a class="btn-close"> <i class="fa fa-times"></i></a>
+      <ul>
+        <li><a href="../servicos-agendamento/servicos.php"> Serviços </a></li>
+        <li><a href="../servicos-agendamento/agendamento.php"> Agendamento </a></li>
+        <li><a href="../index.php"> Contato </i></a></li>
+        <li><a href="../index.php"> Sobre </a></li>
+        <li><a href="cadastro.html"> Cadastro </a></li>
+        <li><a href="login.html"> Login </a></li>
+      </ul>
+    </section>
+  </header>
+
+  <section>
+    <form method="POST" action="../crud/create-cliente.php">
+      <h1>Cadastro</h1>
+      <hr><br>
+      <label for="nome">Nome</label><br>
+      <input type="text" placeholder=" Primeiro e segundo nome" name="frm_nome">
+
+      <br><br>
+      <label for="telefone">Telefone</label><br>
+      <input type="text" placeholder=" (00) 00000-0000" name="frm_telefone">
+
+      <br><br>
+      <label for="email">Email</label><br>
+      <input type="email" placeholder=" seuemail@exemplo.com" name="frm_email">
+
+      <br><br>
+      <label for="senha">Senha</label><br>
+      <input type="password" placeholder=" ********" name="frm_senha">
+
+      <br><br>
+      <button type="submit">Cadastrar</button>
+      <h5>Já possui uma conta? Faça o <a href="login.html">Login</a></h5>
+    </form>
+  </section>
+
+  <footer>
+    <h2 class="title">Atendimento</h2>
+    <ul class="infos">
+      <li><i class="far fa-clock"></i> Ter à sex das 09h00 às 20h00 </li>
+      <li><i class="far fa-clock"></i> Sáb das 09h00 às 19h00 </li>
+    </ul>
+
+    <h2 class="title">Contato</h2>
+    <ul class="infos">
+      <li><i class="fas fa-map-marker-alt"></i> Rua Oscar Freire, 1102, Jardim Paulista – São Paulo </li>
+      <li><i class="fa fa-phone fa-lg"></i> (11) 29460706 </li>
+    </ul>
+
+    <p>© Barber Shop 2020 | Todos os direitos reservados</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script>
+    $(".btn-menu").click(function () { $(".menu").show() });
+    $(".btn-close").click(function () { $(".menu").hide() });
+  </script>
+</body>
+
+</html>

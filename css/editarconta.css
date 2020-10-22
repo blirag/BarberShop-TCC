@@ -1,0 +1,31 @@
+* {margin: 0; padding: 0; font-size: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+nav, ul {list-style: none;}
+a {text-decoration: none; cursor: pointer; color: #fff;}
+
+header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.2em; justify-content: space-between; height: 100px; text-transform: uppercase; margin-bottom: 300px;}
+header .name {color: #fff; margin-right: 500px; font-size: 1.5em; width: 500px; display: flex; margin-left: 10px;}
+header nav ul {display: flex; margin-left: -25%;}
+header nav ul a {padding: 0 15px; color: #fff; text-align: center;}
+header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
+
+section {display: flex; font-size: 1.5em; margin-top: 150px; flex-direction: column; align-items: center; text-transform: uppercase;}
+section form {border-radius: 10px;}
+section form h1 {font-size: 1.7em; text-align: center; width: 500px;}
+section form h2 {font-size: 1.5em; text-align: center; width: 500px;}
+section form label {font-size: 0.9em}
+section form input {width: 500px; height: 55px; border-radius: 5px; border: solid 1px #101010}
+section form button {width: 250px; height: 50px; border-radius: 20px; color: #fff; background-color: #000; margin: 0 120px 35px; text-transform: uppercase;}
+::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
+section form hr {border: solid 1px #000; width: 250px; margin-left: 130px}
+section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
+section form button:hover {opacity: 0.9;}
+section form h5 {font-size: 16px; margin: 0 0 15px 0; text-align: center;}
+section form h5 a {color: #000; text-decoration: underline;}
+section form h5 a:hover {color: #797676c4}
+
+footer {width: 100%; height: 300px; background-color: #101010; color: #fff; display: flex; flex-direction: column; align-items: center;}
+footer h2 {font-size: 1.3em; text-transform: uppercase; margin-top: 20px}
+footer ul {font-size: 1em; text-align: center;}
+footer ul li {margin-top: 10px;}
+footer p {margin-top: 70px}
+

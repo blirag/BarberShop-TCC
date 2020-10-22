@@ -1,0 +1,51 @@
+* {margin: 0; padding: 0; font-size: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;}
+nav, ul {list-style: none;}
+a {text-decoration: none; cursor: pointer}
+
+/* HEADER E MENU RESPONSIVO */
+header button, section {display: none}
+.menu {display: none; z-index: 1; width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9); top: 0; left: 0; margin-top: -10px;}
+.btn-close {font-size: 1.5em; color: #fff; float: right; cursor: pointer; margin: 2% -90% 0 0}
+.menu ul {width: 100%; float: left; text-align: center}
+.menu li {padding: 1.5%}
+.menu li a {font-size: 1.5em; color: #fff; padding: 1.5% 3%}
+.menu li a:hover {border: 1px solid #fff}
+/* HEADER E MENU LARGE */
+header {width: 100%; background-color: #000; display: flex; position: absolute; top: 0; left: 0; align-items: center; font-size: 1.4em; justify-content: space-between;}
+header a img {height: 200px; width: 750px}
+header nav ul {display: flex; margin-left: 15%;}
+header nav ul a {padding: 0 15px; color: #fff}
+header nav ul a:hover {background-color: #fff;color: #101010; cursor: pointer;}
+header a i {margin-right: 12px; font-size: 1.2em; color: #fff}
+header a i:hover {color: #000; background-color: #fff; cursor: pointer;}
+/* AJUSTANDO A RESPONSIVIDADE */
+@media (max-width: 1000px) {
+	header {flex-direction: column; font-size: 1.2em; height: 250px}
+	header a img {width: 700px; margin-left: 13%;}
+	header nav {display: none}
+	header #login {display: none}
+	header button {display: block; width: 600px; text-align: center; color: #fff; border-radius: 20px; cursor: pointer; border: 2px solid #fff; background-color: #000;}
+	header button i {font-size: 1.8em;}
+}
+
+section {display: flex; font-size: 1.5em; margin-top: 250px; flex-direction: column; align-items: center; text-transform: uppercase;}
+section form {border-radius: 10px;}
+section form h1 {font-size: 1.5em; text-align: center; width: 500px;}
+section form label {font-size: 0.9em}
+section form input, select {width: 500px; height: 55px; border-radius: 5px; border: solid 1px #101010}
+section form select option {text-transform: uppercase;}
+section form button {width: 250px; height: 50px; border-radius: 20px; color: #fff; background-color: #000; margin: 0 120px 35px; text-transform: uppercase;}
+::-webkit-input-placeholder {color: #797676b9; font-size: 18px}
+section form hr {border: solid 1px #000; width: 350px; margin-left: 70px}
+section form input:hover, input:focus {color: #000; border-color: none; box-shadow: none; outline: 0;}
+section select option {text-transform: uppercase;}
+@media (max-width: 900px){
+	section form {text-align: center;}
+	section form input, select {width: 400px;}
+}
+
+footer {width: 100%; height: 300px; background-color: #101010; color: #fff; display: flex; flex-direction: column; align-items: center;}
+footer h2 {font-size: 1.3em; text-transform: uppercase; margin-top: 20px}
+footer ul {font-size: 1em; text-align: center;}
+footer ul li {margin-top: 10px;}
+footer p {margin-top: 70px}
